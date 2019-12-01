@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>基本概念</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  function test() {
+    let message = "hi";
+    if (message) {
+      alert("该字符为true")
+    } else {
+      alert("该字符为false")
+    }
+  }
+  // test();
+  let m = "hellow world!";
+  let num1 = 0xA;
+  let num2 = 2.147e3;
+  let num3 = 0.00000000002;
+  let num4 = new Date();
+  let num5 = [1,2,3];
+  let num6 = false;
+  let num7 = 55/0;
+  let people = {
+    name:"amy",
+    age: 18
+  };
+  let o = {
+    valueOf: function () {
+      return -1
+    }
+  };
+
+  console.log(people || o)
+  function a() {
+    if (num6) {
+      console.log(people.age)
+      return;
+    }
+    console.log(people.toString())
+  }
+  a();
+</script>
+</body>
+</html>
