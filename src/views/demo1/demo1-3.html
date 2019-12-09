@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>二维数组</title>
+</head>
+<body>
+<table id="tb" width="100%" border="1" cellspacing="3" cellpadding="3" style="text-align: center;">
+  <tr>
+    <td></td>
+  </tr>
+    <!--角色-->
+</table>
+<script type="text/javascript">
+  let tr = 6;
+  let td = 7;
+  let arr = [];
+  for (let i = 0; i < tr; i++) {
+    // let trTable = [];
+    arr[i] = [];
+    for (let j = 0; j < td; j++) {
+      arr[i][j]={
+        a:i,
+        b:j
+      }
+    }
+  }
+  console.log(arr)
+</script>
+</body>
+</html>

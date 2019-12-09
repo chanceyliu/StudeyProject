@@ -6,5 +6,62 @@
 </head>
 <body>
 
+
+<script type="text/javascript">
+  function a() {
+    let i = 0;
+    do {
+      console.log(i);
+      i = i + 2;
+    } while (i < 10);
+    console.log("结束")
+  }
+  function b() {
+    let i = 0;
+    while (i < 5) {
+      console.log(i);
+      i += 1;
+    }
+    console.log('jj'+i)
+  }
+  // b();
+  let arr = [];
+  function c() {
+   for (let i in window) {
+     arr.push(i)
+   }
+  }
+  function d() {
+    let num = 0;
+    outermost:
+    for (let i = 0; i < 10; i++) {
+      for (let j = 0; j < 10; j++) {
+        if (i === 5 && j === 5) {
+          console.log(i+'     one');
+          console.log(j+'     two');
+          continue outermost;
+        }
+        console.log(num)
+        num++;
+      }
+    }
+  }
+  let people = {
+    name:'lxy',
+    age:21,
+    iq:180,
+    eq:180
+  };
+  let n = "";
+  let aa = "";
+  let i = "";
+  let e = "";
+  with (people) {
+    n = name;
+    aa = age;
+    i = iq;
+    e = eq;
+  }
+</script>
 </body>
 </html>
