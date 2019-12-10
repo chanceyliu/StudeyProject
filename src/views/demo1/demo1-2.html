@@ -45,6 +45,16 @@
         num++;
       }
     }
+    let n = "";
+    let aa = "";
+    let i = "";
+    let e = "";
+    with (people) {
+      n = name;
+      aa = age;
+      i = iq;
+      e = eq;
+    }
   }
   let people = {
     name:'lxy',
@@ -52,16 +62,46 @@
     iq:180,
     eq:180
   };
-  let n = "";
-  let aa = "";
-  let i = "";
-  let e = "";
-  with (people) {
-    n = name;
-    aa = age;
-    i = iq;
-    e = eq;
+  function sw(e) {
+    switch (e) {
+      case 0:
+        console.log("今天是周天");
+        break;
+      case 1:
+        console.log("今天是周一");
+        break;
+      case 2:
+        console.log("今天是周二");
+        break;
+      case 3:
+        console.log("今天是周三");
+        break;
+      case 4:
+        console.log("今天是周五");
+        break;
+      default:
+        console.log("今天是周六")
+    }
   }
+  sw(0);
+  
+  let aa = 5;
+  let ab = 1;
+  let ac = 1;
+  let ad = 1;
+
+  function compare(num1, num2) {
+    console.log(arguments[1]);
+    console.log(arguments.length);
+    if (num1 > num2) {
+      return num1 - num2;
+    } else {
+      return num2 - num1;
+    }
+  }
+  compare(aa,ab)
+
+
 </script>
 </body>
 </html>
