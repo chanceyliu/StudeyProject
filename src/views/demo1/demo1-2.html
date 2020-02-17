@@ -99,8 +99,98 @@
       return num2 - num1;
     }
   }
-  compare(aa,ab)
+  compare(aa,ab);
+  console.log(ab+=5);
+  let av = new Date();
+  //得到时间戳，转换方式：    new Date(时间戳)
+  console.log(av.valueOf());
 
+  let kk = "444";
+  console.log(av instanceof Object)
+
+  function buildUrl() {
+    var qs = "?debug=true";
+
+    with(location){
+      var url = href+qs;
+      console.log(href);
+      console.log(qs)
+    }
+    return url
+  }
+  console.log(buildUrl())
+
+  function createPerson(name) {
+    var localPerson = new Object();
+    localPerson.name = name;
+    return localPerson;
+  }
+
+  var globalPerson = createPerson("Nicholas")
+
+  console.log(globalPerson)
+  globalPerson = null
+
+  function displayInfo(args) {
+    var output = "";
+    if (typeof args.name == "string"){
+      output += "Name:" + args.name + "\n"
+    }
+    if (typeof args.age == "number"){
+      output += "Age:" + args.age + "\n"
+    }
+
+    alert(output)
+  }
+  var obj1 = {
+    name:"张珊",
+    age: 18
+  };
+
+  var obj2 = {
+    name:"欧丽丝"
+  };
+
+  var arr1 = ["red","yellow","orange",undefined,"black"];
+  // displayInfo(obj2)
+
+  var arr2 = ["red","blue"];
+  arr2.push("orange");
+  arr2[3] = "black";
+  console.log(arr2);
+  console.log(arr2.shift());
+  console.log(arr2);
+  console.log(arr2.reverse());
+  console.log(arr2.sort());
+  let arr3 = [1,5,10,3,6,14];
+  // 升序排列
+  function compare(val1, val2) {
+    if (val1 > val2){
+      return 1;
+    } else if (val1 < val2) {
+      return -1;
+    } else {
+      return 0
+    }
+  }
+  // 降序排列
+  function compare1(val1, val2) {
+  return val2 - val1;
+  }
+
+  console.log(arr3.sort(compare1))
+
+  // console.log(obj1["name"])
+
+  // if (arr1 instanceof Array) {
+  //   alert("111")
+  // } else {
+  //   alert("2222")
+  // }
+
+  // console.log(typeof arr1 == "object")
+  // console.log(arr1.join('||'))
+  // alert(arr1)
 
 </script>
 </body>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2020-02-14</title>
+</head>
+<body>
+<script type="text/javascript">
+  let arr = [1,2,3,4];
+  let a = arr.map((item) => {
+    return item * item
+  });
+  console.log(a);
+
+
+  function getSomething() {
+    return "something";
+  }
+
+  async function testAsync() {
+    return Promise.resolve("hello async");
+  }
+
+  async function test() {
+    const v1 = await getSomething();
+    const v2 = await testAsync();
+    console.log(v1, v2);
+  }
+
+
+  function takeLongTime() {
+    return new Promise(resolve => {
+      setTimeout(() => resolve("long_time_value"), 1000);
+    });
+  }
+
+  takeLongTime().then(v => {
+    console.log("got", v);
+  });
+  test();
+</script>
+</body>
+</html>
