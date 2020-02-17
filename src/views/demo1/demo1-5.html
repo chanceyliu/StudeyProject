@@ -76,18 +76,17 @@
     if (start <= end) {
       let mid = Math.floor((start + end) / 2);
       if (key > arr[mid]) {
-        myHalve1(key, arr, mid + 1, end)
+        return myHalve1(key, arr, mid + 1, end)
       } else if (key < arr[mid]) {
-        myHalve1(key, arr, start, mid - 1)
+        return myHalve1(key, arr, start, mid - 1)
       } else {
-        console.log(mid);
-        return mid;//不知道为什么这里返回的mid是undefined，但打印的结果是正确的
+        return mid;
       }
     }
   }
 
   let testArr = [1, 2, 3, 4, 5]
-  console.log(myHalve1(9, testArr, 0, testArr.length - 1))
+  console.log(myHalve1(5, testArr, 0, testArr.length - 1))
   console.log(myHalve(9, testArr))
 </script>
 </body>
