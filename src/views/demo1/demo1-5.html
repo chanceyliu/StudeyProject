@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>算法</title>
+</head>
+<body>
+<script type="text/javascript">
+  //冒泡排序
+  function mySort() {
+    let arr = [2, 4, 5, 6, 8, 1, 9, 7, 3];
+    for (let i = 0; i < arr.length - 1; i++) {//外层循环决定循环次数(i < arr.length - 1因为只用循环数组的length - 1次)
+      console.log("i=" + i)
+      let flag = true;//设立标志，无需比较时不会继续执行循环，提高性能
+      for (let j = 0; j < arr.length - 1 - i; j++) {//内层循环决定比较次数(这里在减一个i是因为循环一次后就会找到一个最大数，这时这个最大数不需要再被加入比较了)
+        console.log("j=" + j)
+        if (arr[j] > arr[j + 1]) {//如果前面的数比后面的大（降序只需改变大于为小于即可）
+          let temp = arr[j];//先把大的值存起来
+          arr[j] = arr[j + 1];
+          arr[j + 1] = temp;//和小的数交换位置，浮到最后
+          flag = false;
+        }
+      }
+      if (flag) {
+        break;
+      }
+    }
+    console.log(arr)
+  }
+
+  // mySort();
+
+  //递归算法
+
+  //求阶乘
+  function myRecursion(n) {
+    if (n === 1) {//确定循环终止条件
+      return 1;
+    }
+    return n * myRecursion(n - 1);//找出逻辑关系
+  }
+
+  //斐波那契数列
+  function fib(n) {
+    if (n <= 2) {
+      return 1
+    }
+    return fib(n - 1) + fib(n - 2)
+  }
+
+  // console.log(fib(9))
+
+  //二分查找
+  //arr是一个有序数组(这里是一个从小到大的数组)
+  //key是要查找的数值
+  function myHalve(key, arr) {
+    let start = 0;//数组起始坐标
+    let end = arr.length - 1;//数组结束坐标
+    while (start <= end) {//当起始坐标小于等于终止坐标时说明数组有效，进行判断
+      let mid = Math.floor((start + end) / 2);//mid即为数组的中间下标
+      if (key > arr[mid]) {
+        start = mid + 1//key等于中间值直接返回该值的下标
+      } else if (key < arr[mid]) {
+        end = mid - 1//key大于中间值说明属于数组的右半边区域，则起始下标变为中间下标
+      } else {
+        return mid//key小于中间值说明属于数组的左半边区域，则终止下标变为中间下标
+      }
+    }
+    return -1;//不存在或数组无效返回-1
+  }
+
+  function myHalve1(key, arr, start, end) {
+    if (start > end) {
+      return -1;
+    }
+    if (start <= end) {
+      let mid = Math.floor((start + end) / 2);
+      if (key > arr[mid]) {
+        myHalve1(key, arr, mid + 1, end)
+      } else if (key < arr[mid]) {
+        myHalve1(key, arr, start, mid - 1)
+      } else {
+        console.log(mid);
+        return mid;//不知道为什么这里返回的mid是undefined，但打印的结果是正确的
+      }
+    }
+  }
+
+  let testArr = [1, 2, 3, 4, 5]
+  console.log(myHalve1(9, testArr, 0, testArr.length - 1))
+  console.log(myHalve(9, testArr))
+</script>
+</body>
+</html>
