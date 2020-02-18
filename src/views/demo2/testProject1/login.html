@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订餐系统登录页</title>
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/login_css.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="Js/jquery-3.2.0.js"></script>
+    <script src="Js/login_js.js"></script>
+</head>
+<body>
+<!--顶部菜单S-->
+<header>
+    <ul class="animated slideInDown nav">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="menu.html">菜单</a></li>
+        <li>Online Restaurant</li>
+        <li><span></span><a href="#">账户管理</a></li>
+        <li><a href="car.html">购物车</a></li>
+        <li><a href="#"><img src="images/search.png"></a></li>
+    </ul>
+</header>
+<!--顶部菜单E-->
+<!--登录板块S-->
+<div class="location animated slideInLeft" id="login">
+    <h3>用户登录</h3>
+    <div class="login_center">
+        <input id="username" type="text" placeholder="用户名">
+        <input id="password" type="password" placeholder="密码">
+    </div>
+    <div class="login_bottom">
+        <p @click="tiao()">免费注册 ？</p>
+        <div><input type="checkbox">记住登录</div>
+    </div>
+    <a href="#" @click="login1()"><div class="go"><img src="images/right.png"></div></a>
+</div>
+<!--登录板块E-->
+<!--注册板块S-->
+<div class="location" id="registe">
+    <h3>账号注册</h3>
+    <div class="registe_center">
+        <input type="text" placeholder="用户名">
+        <input type="password" placeholder="密码">
+        <input type="text" placeholder="确认密码">
+        <input type="text" placeholder="地址">
+        <input type="text" placeholder="联系电话">
+    </div>
+    <div class="registe_bottom">
+        <p>已有账户，登录</p>
+    </div>
+    <a href="#"><div class="go"><img src="images/right.png"></div></a>
+</div>
+<!--注册板块S-->
+</body>
+</html>

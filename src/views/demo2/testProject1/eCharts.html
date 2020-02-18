@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订餐系统数据统计页</title>
+    <link rel="stylesheet" href="css/eCharts_css.css">
+    <script src="Js/jquery-3.2.0.js"></script>
+    <script src="Js/echarts.min.js"></script>
+    <script src="Js/eCharts_js.js"></script>
+    <script src="Js/china.js"></script>
+</head>
+<body>
+<!--图表背景S-->
+<div class="content">
+    <div class="top"><h1>美食网站数据一览</h1></div>
+    <!--内部三张表S-->
+    <div class="bottom">
+        <!--左边折线图加数据滚动显示S-->
+        <div class="left">
+            <div class="lbt"><h3>销售趋势</h3></div>
+            <div class="left_top"></div>
+            <div class="lbt"><h3>销售动态</h3></div>
+            <div class="left_bottom">
+                <ol id="datas">
+                    <li>1.恭喜上海分店荣获今年销冠</li>
+                    <li>2.今年六月销售额全年最低</li>
+                    <li>3.老板希望明年指标突破十个亿</li>
+                    <li>4.上海分店全部员工年终奖奖励一万</li>
+                    <li>5.重庆分店服务到位，有望成为明年销冠</li>
+                    <li>6.广西分店请不要称呼客人“叼毛”</li>
+                    <li>7.八月份总部会派人到各大分店匿名检查</li>
+                    <li>8.公司生意不景气，将裁员500人</li>
+                    <li>10.公司将在西藏开设分店</li>
+                    <li>11.今年年底撤回内蒙古半数店铺</li>
+                    <!--<li>12.明年将在云南丽江开设分店</li>-->
+                </ol>
+            </div>
+        </div>
+        <!--左边折线图加数据滚动显示E-->
+        <!--中间地图分布S-->
+        <div class="center"></div>
+        <!--中间地图分布E-->
+    </div>
+    <!--内部三张表E-->
+</div>
+<!--图表背景E-->
+</body>
+</html>

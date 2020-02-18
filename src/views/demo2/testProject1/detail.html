@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订餐系统菜品详情页</title>
+    <style>
+
+    </style>
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/detail_css.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="Js/detaul_js.js"></script>
+</head>
+<body>
+<!--顶部菜单S-->
+<header>
+    <ul class="animated slideInDown nav">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="menu.html">菜单</a></li>
+        <li>Online Restaurant</li>
+        <li><span></span><a href="login.html">账户管理</a></li>
+        <li><a href="car.html">购物车</a></li>
+        <li><a href="#"><img src="images/search.png"></a></li>
+    </ul>
+</header>
+<!--顶部菜单E-->
+<!--内容板块S-->
+<div id="app">
+    <main :class="pron" class="animated fadeInUp">
+        <!--菜品详情S-->
+        <div class="main_top">
+            <div class="top_left">
+                <div class="tl_top">
+                    <span>水煮鱼</span>
+                    <span>￥19.88</span>
+                </div>
+                <div class="tl_center">
+                    <table border="1">
+                        <tr>
+                            <td>菜品类型：</td>
+                            <td>中餐</td>
+                            <td>口味：</td>
+                            <td>
+                                <select v-model="pron">
+                                    <option value="a">劲爆火辣(超辣）</option>
+                                    <option value="b">微微羞涩(中辣）</option>
+                                    <option value="c">堂堂正正(不辣）</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>推荐季节：</td>
+                            <td>春、夏、秋、冬</td>
+                            <td>工艺：</td>
+                            <td>水煮</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tl_bottom">
+                    <h3>菜品详情</h3>
+                    <p>水煮鱼也称为江水煮江鱼、水煮鱼片，最早流行于重庆市渝北区翠云乡.水煮鱼通常由新鲜草鱼、豆芽、辣椒等食材制作而成。“油而不腻、辣而不燥、麻而不苦、肉质滑嫩”是其特色。草鱼含有丰富的不饱和脂肪酸，对血液循环有利，是心血管病人的良好食物。含有丰富的硒元素，经常食用有抗衰老、养颜的功效，而且对肿瘤也有一定的防治作用。另外，草鱼具有暖胃和中、平肝祛风、治痹、截疟、益肠明眼目之功效，主治虚劳、风虚头痛、肝阳上亢、高血压、头痛、久疟。</p>
+                </div>
+            </div>
+            <div class="top_right">
+                <div class="tr_top"></div>
+                <div class="tr_bottom">
+                    <span><a href="car.html">加入购物车</a></span>
+                    <span>立即下单</span>
+                </div>
+            </div>
+        </div>
+        <!--菜品详情E-->
+        <!--用户评价S-->
+        <hr>
+        <div class="main_bottom">
+            <div class="bottom_top">
+                <div class="comment">
+                    <div class="phontframe"></div>
+                    <div class="fontframe">
+                        <h3>吴二狗</h3>
+                        <p>2017-05-18 16:14:28</p>
+                        <p>这个东西是真的好吃</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="comment">
+                    <div class="phontframe"></div>
+                    <div class="fontframe">
+                        <h3>张全蛋</h3>
+                        <p>2017-05-18 16:14:28</p>
+                        <p>这个鱼吃起来真的爽</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="comment">
+                    <div class="phontframe"></div>
+                    <div class="fontframe">
+                        <h3>赵铁柱</h3>
+                        <p>2017-05-18 16:14:28</p>
+                        <p>楼上说得对</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom_bottom">
+                <textarea></textarea>
+                <input type="button" value="立即评论">
+            </div>
+        </div>
+        <!--用户评价E-->
+    </main>
+</div>
+<!--内容板块E-->
+</body>
+</html>

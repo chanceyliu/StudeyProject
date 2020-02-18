@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订餐系统商品订单页</title>
+    <link rel="stylesheet" href="css/car_css.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="Js/jquery-3.2.0.js"></script>
+    <script src="Js/car_js.js"></script>
+</head>
+<body>
+<!--顶部菜单S-->
+<header>
+    <ul class="animated slideInDown nav">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="menu.html">菜单</a></li>
+        <li>Online Restaurant</li>
+        <li><span></span><a href="login.html">账户管理</a></li>
+        <li><a href="#">购物车</a></li>
+        <li><a href="#"><img src="images/search.png"></a></li>
+    </ul>
+</header>
+<!--顶部菜单E-->
+<!--内容板块S-->
+<div id="app">
+    <main class="animated fadeInUp">
+        <div class="main_bt">
+            <ul>
+                <li>图片</li>
+                <li>名称</li>
+                <li>单价</li>
+                <li>数量</li>
+                <li>实际付款</li>
+                <li>交易状态</li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="animated slideInLeft main_order">
+            <template v-for="(or,i) in options.orders" :key="i">
+            <ul>
+                <li><img :src="or.photo"></li>
+                <li>
+                    <h3>{{or.name}}</h3>
+                    <p>{{or.biao}}</p>
+                    <p><a href="detail.html">订单详情</a></p>
+                </li>
+                <li>￥{{or.cal}}</li>
+                <li><input type="button" value="-" @click="reduce(i)">{{or.count}}<input type="button" value="+" @click="add(i)"></li>
+                <li>￥{{or.total}}</li>
+                <li>交易成功</li>
+                <li>
+                    <input type="button" value="删除">
+                    <input type="button" value="评价">
+                </li>
+            </ul>
+            </template>
+        </div>
+    </main>
+</div>
+<!--内容板块E-->
+</body>
+</html>

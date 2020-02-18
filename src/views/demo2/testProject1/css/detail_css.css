@@ -1,0 +1,244 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+html{
+    width: 100%;
+    height: 125%;
+}
+body{
+    background: url("../images/banner0.jpg") no-repeat;
+    /*width: 100%;*/
+    /*height: 100%;*/
+    background-size: 100% 100%;
+}
+/*顶部菜单S*/
+.nav{
+    width: 80%;
+    height: 50px;
+    margin: 0 auto;
+    /*background-color: white;*/
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+.nav li{
+    background-color: rgba(255, 239, 239, 0.51);
+    /*float: left;*/
+    flex-grow: 1;
+    line-height: 50px;
+    margin-right: 1px;
+    transition: ease-in 0.1s;
+    /*opacity: 0.5;*/
+}
+.nav li:nth-child(4){
+    flex-grow: 0.5;
+    display: flex;
+    justify-content: center;
+}
+.nav li:nth-child(2){
+    background-color: #ff6f85;
+}
+.nav li:last-child{
+    flex-grow: 0.2;
+}
+.nav li:hover{
+    background-color: #ff6f85;
+}
+.nav li:nth-child(3):hover{
+    background-color: rgba(255, 239, 239, 0.51);
+}
+.nav li a{
+    font-weight: bold;
+}
+.nav li span{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-image: url("../images/avatar.jpg");
+    background-size: contain;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+/*顶部菜单E*/
+/*内容板块S*/
+.a{
+    background-color: rgba(255,0,0,0.8);
+}
+.b{
+    background-color: rgba(255, 199, 189, 0.8);
+}
+.c{
+    background-color: rgba(0, 212, 255, 0.8);
+}
+main{
+    width: 80%;
+    height: 800px;
+    margin: 0 auto;
+    background-color: rgba(255,255,255,0.8);
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/*菜品详情S*/
+main .main_top{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+}
+main .main_top .top_left{
+    width: 63%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+main .main_top .top_left .tl_top{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+main .main_top .top_left .tl_top span{
+    font-weight: bold;
+    line-height: 40px;
+    font-size: 18px;
+}
+main .main_top .top_left .tl_top span:nth-child(2){
+    color: #00B83F;
+}
+main .main_top .top_left .tl_center{
+    width: 100%;
+    height: 30%;
+}
+main .main_top .top_left .tl_center table{
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+}
+main .main_top .top_left .tl_center table select{
+    width: 100%;
+    height: 100%;
+    /*border-radius: 10px;*/
+}
+main .main_top .top_left .tl_center table tr td:nth-child(1),td:nth-child(3){
+    width: 20%;
+    background-color: #c9c9c9;
+}
+main .main_top .top_left .tl_center table tr td:nth-child(2),td:nth-child(4){
+    width: 30%;
+}
+main .main_top .top_left .tl_bottom{
+    width: 100%;
+    height: 40%;
+}
+main .main_top .top_right{
+    width: 35%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+main .main_top .top_right .tr_top{
+    width: 100%;
+    height: 80%;
+    background: url("../images/food1.jpg") no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+main .main_top .top_right .tr_bottom{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+}
+main .main_top .top_right .tr_bottom span{
+    width: 45%;
+    height: 100%;
+    background-color: tomato;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 18px;
+    color: #FFFFFF;
+    font-weight: bold;
+    cursor: pointer;
+    transition: ease-in 0.2s;
+}
+main .main_top .top_right .tr_bottom span:hover{
+    background-color: rgba(255,0,0,0.8);
+}
+main .main_top .top_right .tr_bottom a{
+    color: #FFFFFF;
+}
+/*菜品详情E*/
+/*用户评价S*/
+main .main_bottom{
+    width: 100%;
+    height: 350px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+main .main_bottom .bottom_top{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+main .main_bottom .bottom_top .comment{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: flex-start;
+}
+main .main_bottom .bottom_top .comment .phontframe{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background: url("../images/avatar.jpg") no-repeat;
+    background-size: cover;
+    margin-right: 10px;
+}
+main .main_bottom .bottom_top .comment .fontframe{
+    width: 830px;
+    height: 80px;
+    /*background-color: #2d71a9;*/
+}
+main .main_bottom .bottom_top .comment .fontframe p:nth-child(2){
+    color: #999999;
+    font-style: italic;
+}
+main .main_bottom .bottom_bottom{
+    width: 100%;
+    height: 16%;
+    display: flex;
+    justify-content: space-between;
+}
+main .main_bottom .bottom_bottom textarea{
+    width: 80%;
+    height: 100%;
+}
+main .main_bottom .bottom_bottom input{
+    width: 18%;
+    height: 100%;
+    background-color: #00B83F;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 53px;
+    font-size: 20px;
+    color: #FFFFFF;
+    font-weight: bold;
+    cursor: pointer;
+    border-color: #00B83F;
+}
+/*用户评价E*/
+/*内容板块E*/

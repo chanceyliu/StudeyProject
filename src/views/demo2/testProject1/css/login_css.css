@@ -1,0 +1,161 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    background: url("../images/scream.jpg") no-repeat;
+    /*width: 100%;*/
+    /*height: 100%;*/
+    background-size: 100% 100%;
+}
+/*顶部菜单S*/
+.nav{
+    width: 80%;
+    height: 50px;
+    margin: 0 auto;
+    /*background-color: white;*/
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+.nav li{
+    background-color: rgba(255, 239, 239, 0.51);
+    /*float: left;*/
+    flex-grow: 1;
+    line-height: 50px;
+    margin-right: 1px;
+    transition: ease-in 0.1s;
+    /*opacity: 0.5;*/
+}
+.nav li:nth-child(4){
+    flex-grow: 0.5;
+    background-color: #ff6f85;
+    display: flex;
+    justify-content: center;
+}
+.nav li:last-child{
+    flex-grow: 0.2;
+}
+.nav li:hover{
+    background-color: #ff6f85;
+}
+.nav li:nth-child(3):hover{
+    background-color: rgba(255, 239, 239, 0.51);
+}
+.nav li a{
+    font-weight: bold;
+}
+.nav li span{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-image: url("../images/avatar.jpg");
+    background-size: contain;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+/*顶部菜单E*/
+/*登录块S*/
+.location{
+    position: absolute;
+    top: 100px;
+    left: 62%;
+}
+.go{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-color: #ff4e6c;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    top: 105px;
+    right: -25px;
+}
+.go:hover{
+    box-shadow: 2px 2px 5px black;
+}
+.go img{
+    vertical-align: middle;
+    width: 30px;
+}
+#login{
+    width: 350px;
+    height: 250px;
+    background-color: white;
+    border-radius: 10px;
+}
+#login h3{
+    width: 90%;
+    text-align: center;
+    margin: 30px auto;
+}
+#login .login_center{
+    width: 90%;
+    margin: 0 auto;
+}
+#login .login_center input{
+    width: 100%;
+    border: none;
+    border-bottom: #999999 1px solid;
+    margin-bottom: 30px;
+}
+#login .login_bottom{
+    width: 90%;
+    margin: 20px auto;
+}
+#login .login_bottom p{
+    float: left;
+    cursor: pointer;
+}
+#login .login_bottom p:hover{
+    text-decoration: underline;
+    color: #FF00FF;
+}
+#login .login_bottom div{
+    float: right;
+}
+/*登录块E*/
+/*注册块S*/
+#registe{
+    width: 350px;
+    height: 400px;
+    background-color: white;
+    border-radius: 10px;
+    display: none;
+}
+#registe h3{
+    width: 90%;
+    text-align: center;
+    margin: 30px auto;
+}
+#registe .registe_center{
+    width: 90%;
+    margin: 0 auto;
+}
+#registe .registe_center input{
+    width: 100%;
+    border: none;
+    border-bottom: #999999 1px solid;
+    margin-bottom: 30px;
+}
+#registe .registe_bottom{
+    width: 90%;
+    margin: 0 auto;
+}
+#registe .registe_bottom p{
+    cursor: pointer;
+}
+#registe .registe_bottom p:hover{
+    text-decoration: underline;
+    color: #FF00FF;
+}
+/*注册块E*/

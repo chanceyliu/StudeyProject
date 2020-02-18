@@ -1,0 +1,192 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    background: url("../images/banner4.jpg") no-repeat;
+    /*width: 100%;*/
+    /*height: 100%;*/
+    background-size: 100% 100%;
+}
+/*顶部菜单S*/
+.nav{
+    width: 80%;
+    height: 50px;
+    margin: 0 auto;
+    /*background-color: white;*/
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+.nav li{
+    background-color: rgba(255, 239, 239, 0.51);
+    flex-grow: 1;
+    line-height: 50px;
+    margin-right: 1px;
+    transition: ease-in 0.1s;
+}
+.nav li:nth-child(4){
+    flex-grow: 0.5;
+    /*background-color: #ff6f85;*/
+    display: flex;
+    justify-content: center;
+}
+.nav li:nth-child(5){
+    background-color: #ff6f85;
+}
+.nav li:last-child{
+    flex-grow: 0.2;
+}
+.nav li:hover{
+    background-color: #ff6f85;
+}
+.nav li:nth-child(3):hover{
+    background-color: rgba(255, 239, 239, 0.51);
+}
+.nav li a{
+    font-weight: bold;
+}
+.nav li span{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-image: url("../images/avatar.jpg");
+    background-size: contain;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+/*顶部菜单E*/
+/*内容板块S*/
+main{
+    width: 80%;
+    height: 600px;
+    margin: 0 auto;
+    background-color: rgba(255,255,255,0.8);
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+main .main_bt{
+    width: 100%;
+    height: 10%;
+    /*background-color: tomato;*/
+}
+main .main_bt ul{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+main .main_bt ul li{
+    width: 100px;
+    line-height: 60px;
+    font-weight: bold;
+    color: #999999;
+}
+main .main_bt ul li:nth-child(1){
+    width: 110px;
+}
+main .main_bt ul li:nth-child(2){
+    width: 280px;
+}
+main .main_order{
+    width: 100%;
+    height: 20%;
+    /*background-color: #00dddd;*/
+}
+main .main_order ul{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    /*text-align: center;*/
+}
+main .main_order ul li{
+    width: 100px;
+}
+main .main_order ul li:nth-child(1){
+    width: 110px;
+    height: 110px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+main .main_order ul li:nth-child(1) img{
+    width: 100%;
+    height: 100%;
+}
+main .main_order ul li:nth-child(2){
+    width: 280px;
+}
+main .main_order ul li:nth-child(2) p{
+    margin-top: 10px;
+}
+main .main_order ul li:nth-child(2) p:nth-child(3){
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #00B83F;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}
+main .main_order ul li:nth-child(2) p:nth-child(3):hover{
+    background-color: #00ea46;
+}
+main .main_order ul li:nth-child(3){
+    align-self: center;
+    color: #00B83F;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+}
+main .main_order ul li:nth-child(4){
+    align-self: center;
+    text-align: center;
+    font-size: 18px;
+}
+main .main_order ul li:nth-child(4) input{
+    width: 20px;
+    height: 20px;
+    background-color: #00B83F;
+    border-color: #00B83F;
+    border-radius: 10px;
+}
+main .main_order ul li:nth-child(5){
+    align-self: center;
+    font-weight: bold;
+    text-align: center;
+    font-size: 24px;
+}
+main .main_order ul li:nth-child(6){
+    align-self: center;
+    text-align: center;
+    font-size: 18px;
+}
+main .main_order ul li:nth-child(7){
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+main .main_order ul li:nth-child(7) input{
+    height: 35px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+main .main_order ul li:nth-child(7) input:nth-child(1){
+    background-color: red;
+    border-color: red;
+}
+main .main_order ul li:nth-child(7) input:nth-child(2){
+    background-color: deepskyblue;
+    border-color: deepskyblue;
+}
+/*内容板块E*/

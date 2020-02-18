@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+html{
+    width: 100%;
+    height: 100%;
+}
+body {
+    /*background: url("../images/banner0.jpg") no-repeat;*/
+    /*background-size: 100% 100%;*/
+    background-color: rgb(16, 35, 72);
+}
+/*图表背景S*/
+.content{
+    width: 80%;
+    height: 600px;
+    margin: 0 auto;
+    background-color: rgba(16, 35, 72, 0.8);
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.content .top{
+    width: 100%;
+    height: 8%;
+    /*background-color: blue;*/
+    text-align: center;
+}
+.content .top h1{
+    color: #FFFFFF;
+}
+/*内部三张表S*/
+.content .bottom{
+    width: 100%;
+    height: 90%;
+    /*background-color: orange;*/
+    display: flex;
+    justify-content: space-between;
+}
+/*内部三张表E*/
+/*左边折线图加数据滚动显示E*/
+.content .bottom .left{
+    width: 25%;
+    height: 100%;
+    /*background-color: red;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.content .bottom .left .left_top{
+    width: 100%;
+    height: 38%;
+    /*background-color: gold;*/
+}
+.content .bottom .left .lbt{
+    width: 90%;
+    height: 5%;
+    background:linear-gradient(to right,transparent,skyblue);
+    transform: skewX(-20deg);
+}
+.content .bottom .left .lbt h3{
+    color: deepskyblue;
+    margin-left: 5px;
+}
+.content .bottom .left .left_bottom{
+    width: 100%;
+    height: 48%;
+    background-color: #0e2832;
+    overflow-y: hidden;
+}
+.content .bottom .left .left_bottom #datas{
+    width: 100%;
+    height: 100%;
+}
+.content .bottom .left .left_bottom #datas li{
+    width: 100%;
+    height: 25px;
+    border-bottom: 1px skyblue dashed;
+    color: deepskyblue;
+    line-height: 25px;
+    font-size: 14px;
+ }
+/*左边折线图加数据滚动显示E*/
+/*中间地图分布S*/
+.content .bottom .center{
+    width: 73%;
+    height: 100%;
+    /*background-color: yellow;*/
+}
+/*中间地图分布E*/
+/*图表背景E*/
