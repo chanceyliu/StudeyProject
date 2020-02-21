@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ajax学习2</title>
+</head>
+<body>
+<div id="status" style="width: 100px;height: 100px;border: 1px solid blue"></div>
+<div id="status1" style="width: 100px;height: 100px;border: 1px solid red"></div>
+<script type="text/javascript">
+  let xhr = new XMLHttpRequest();//创建xhr对象
+  xhr.onprogress = function(event) {//在浏览器接收新数据时周期性触发
+    console.log(event)
+    let divStatus = document.getElementById("status1");
+    if (event.lengthComputable){
+      divStatus.innerHTML = "received" + event.position + " of " + event.totalSize + " bytes";
+    }
+  };
+  xhr.open("get", "demo1-3.html", true);//发送请求
+  // let form = document.getElementById("user-info");
+  xhr.send(null);//接收一个参数作为请求主体发送的数据，调用该方法后，请求会被分派到服务器
+  xhr.onload = function (event) {//可代替onreadystatechange事件，响应接收完毕后触发
+    if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {//检测状态码
+      document.getElementById("status").innerHTML = xhr.responseText
+      // alert(xhr.responseText)
+    } else {
+      alert("状态码:" + xhr.status)
+    }
+  };
+
+  console.log(xhr)
+  console.log(xhr.getAllResponseHeaders())
+  // console.log(xhr.open("get","example,txt",false))
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2020/2/21</title>
+</head>
+<body>
+<script type="text/javascript">
+  let arr1 = [1,2,3.4,5]
+  // arr1.splice(0,2)//删除
+  // arr1.splice(1,0,9,7,8)//插入
+  // arr1.splice(1,1,9,7,8)//替换
+  // console.log(arr1)
+
+  let arr2 = [1,2,3,4,5,4,3,2,1];
+  // console.log(arr2.lastIndexOf(4))
+
+  let person = { name: "liu" };
+  let people = [{ name: "liu" }];
+  let  morePeople = [people]
+  console.log(morePeople)
+  //数组去重
+  let a = arr2.filter((item,index,array) => {
+    return index === array.indexOf(item)
+  })
+  console.log(a)
+
+  //数组求和
+  let b = arr2.reduce((prev,cur,index) => {
+    return prev + cur;//执行后的返回值会作为第一个参数自动传给下一项
+  })
+  console.log(b)
+
+  let start = Date.now();
+  // doSomething();
+  let end = Date.now();
+  console.log(end - start)
+</script>
+</body>
+</html>

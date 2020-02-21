@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>笔记</title>
+</head>
+<style type="text/css">
+  body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+</style>
+<body>
+  <span>你好啊</span>
+  <a href="#" id="size-12">12</a>
+  <a href="#" id="size-14">14</a>
+  <a href="#" id="size-16">16</a>
+<script type="text/javascript">
+  function makeSizer(size) {
+    return function () {
+      document.body.style.fontSize = size + 'px';
+    };
+  }
+
+  var size12 = makeSizer(12);
+  var size14 = makeSizer(14);
+  var size16 = makeSizer(16);
+  document.getElementById('size-12').onclick = size12;
+  document.getElementById('size-14').onclick = size14;
+  document.getElementById('size-16').onclick = size16;
+
+  function f1() {
+    let n = 999;
+    return function f2() {
+       alert(n)
+    }
+  }
+  // let result = f1();
+  // result();
+
+
+  var name = "this window"
+  var object = {
+    name: "my window",
+    getNameFunc: function () {
+      return function () {
+        return this.name
+      }
+    }
+  }
+  // alert(object.getNameFunc()())
+
+  function superType() {
+    this.prototype = true
+  }
+
+
+  superType.prototype.getSuperValue = function () {
+    return this.prototype
+  };
+
+
+  function subType() {
+    this.subproperty = false
+  }
+
+  subType.prototype = new superType();
+
+  subType.prototype.getSubValue = function() {
+    return this.subproperty;
+  }
+
+  let instance = new subType();
+
+  console.log(superType)
+  console.log(subType.prototype)
+  console.log(instance.getSuperValue())
+
+
+</script>
+</body>
+</html>

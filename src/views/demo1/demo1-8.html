@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ajax学习</title>
+</head>
+<body>
+<script type="text/javascript">
+  let xhr = new XMLHttpRequest();//创建xhr对象
+  let url = "example.php";
+  url = addUrlParam(url,"name","liu");
+  xhr.onreadystatechange = function () {//设定readystatechange方法，只要readystate值发生改变就会触发readystatechange方法
+    if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {//检测状态码
+      alert(xhr.responseText)
+    } else {
+      alert("状态码:" + xhr.status)
+    }
+  };
+  xhr.open("get",url,false);//发送请求
+  xhr.setRequestHeader("MyHeader","MyValue")//自定义头部信息
+  xhr.send(null);//接收一个参数作为请求主体发送的数据，调用该方法后，请求会被分派到服务器（多用于post请求发送请求数据）
+  xhr.abort();//取消异步请求，调用后xhr对象会停止触发事件
+  let myHeader = xhr.getResponseHeader("MyHeader");//获取参数对应的头部信息
+  let allHeaders = xhr.getAllResponseHeaders();//获取所有头部信息
+
+  function addUrlParam(url,name,value) {//组装正确格式的URL
+    url += (url.indexOf("?") === -1 ? "?" : "&")
+    url += encodeURIComponent(name) + "=" + encodeURIComponent(value);
+    return url
+  }
+
+
+
+  console.log(allHeaders)
+  console.log(xhr)
+  // console.log(xhr.open("get","example,txt",false))
+</script>
+</body>
+</html>

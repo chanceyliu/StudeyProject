@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>跨域</title>
+</head>
+<body>
+<div id="status" style="width: 100px;height: 100px;border: 1px solid blue"></div>
+<div id="status1" style="width: 100px;height: 100px;border: 1px solid red"></div>
+<script type="text/javascript">
+  let img = new Image();
+  img.onload = img.onerror = function() {
+    console.log("Done!")
+  };
+  img.src = "https://www.baidu.com/";
+
+  function handleResponse(response) {
+    console.log("Ip:" +response[0]+",city:"  +response[1])
+  }
+  let script = document.createElement("script");
+  script.src = "https://www.runoob.com/try/ajax/jsonp.php?jsoncallback=handleResponse"
+  document.body.insertBefore(script,document.body.firstChild);
+
+  function createStreamingClient(url, progress, finished) {
+    let xhr = new XMLHttpRequest();
+    let received = 0;
+    xhr.open("get", url, true);
+    xhr.onreadystatechange = function (event) {
+      let result;
+      if (xhr.readyState === 3) {
+        result = xhr.responseText.substring(received);
+        received += result.length
+        progress(result);
+      } else if (xhr.readyState === 4) {
+        finished(xhr.responseText)
+      }
+    };
+    xhr.send(null);
+    console.log(xhr);
+    return xhr;
+  }
+  let client = createStreamingClient("demo1-3.html",function (data) {
+    alert(data)
+  },function (data) {
+    console.log("898989:  "+data)
+  });
+
+  let socket = new WebSocket("ws://localhost:63342/StudeyProject/src/views/demo1/demo1-3.html")
+  socket.onopen = function() {
+    alert("1111")
+  };
+  socket.onerror = function() {
+    alert("2222")
+  };
+  console.log(socket)
+</script>
+</body>
+</html>
