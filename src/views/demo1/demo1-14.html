@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>奇安信笔试</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  //生兔子
+  function rabit(n) {
+    if (n >= 101 || n < 0 || typeof n !== "number") {
+      alert("请输入正确的自然数");
+      return -1;
+    }
+    if ((n / 4) % 1 === 0) {
+      return Math.pow(2, Math.floor(n / 4) - 1);
+    }
+    return Math.pow(2, Math.floor(n / 4));
+  }
+
+  //取硬币
+  function money(n) {
+    if (n >= 1001 || n < 0 || typeof n !== "number") {
+      alert("请输入正确的自然数");
+      return -1;
+    }
+    return (n * (10 / 1000)).toFixed(6)
+  }
+
+  console.log(rabit(100))
+</script>
+</body>
+</html>
