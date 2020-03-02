@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2020/03/02 单体内置对象</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  let url = "http://www,sdfsdf . dfs.asdf ";
+  let url1 = encodeURI(url);
+  console.log(decodeURI(url1))
+
+  eval("function sayHi() {console.log('你好')}");//位于eval函数内部的字符串会被编程成有意义的语句
+  sayHi()
+
+  var color = "red";
+
+  function sayColor() {
+    console.log(window.color)
+  }
+
+  sayColor();
+
+  var global = function () {
+    return this;
+  }();
+
+  let arr = [1, 5, 2, 6, 56, 89];
+  let max = Math.max.apply(Math, arr);//将Math对象作为apply第一个参数，使this指向正确，第二个参数就可以传入数组了。
+  console.log(max)
+
+  //Math.random()会生成一个随机数，利用公式Math.floor(Math.random() * 范围内数的总数 + 第一个数)可生成一个范围内的随机整数
+  let num = Math.floor(Math.random() * 10 + 1);
+  console.log(num)
+
+  //Object.defineProperty(属性所在对象，要操作的属性名，描述符对象),用这个方法定义的属性叫访问器属性
+  let person = {}
+  Object.defineProperty(person,"name",{
+    configurable: false,
+    writable:false,
+    value:"张三"
+  })
+  person.name = "544";
+  delete person.name
+
+  console.log(person.name)
+
+  var book = {
+    _year:2004,
+    edition:1
+  }
+  Object.defineProperty(book,"year",{
+    get: function() {//获取值
+      console.log("get:"+this._year)
+      return this._year
+    },
+    set: function (newVal) {//写入值
+      if (newVal > 2004) {
+        this._year = newVal;
+        this.edition += newVal-2004;
+      }
+    }
+  });
+  book.year = 2005
+  console.log(book)
+
+  let descriptor1 = Object.getOwnPropertyDescriptor(book,"_year")//可获取给定对象属性的描述符
+  let descriptor2 = Object.getOwnPropertyDescriptor(book,"year")
+  console.log(descriptor1)
+  console.log(descriptor2)
+</script>
+</body>
+</html>

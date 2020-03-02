@@ -24,7 +24,7 @@
   }
   sayColor()//这里是在全局作用域下调用该函数，则内部this的指向其实就是window
   sayColor.call(o)//apply和call区别为第二个参数，apply可以传数组。call只能传一个个的值
-  sayColor.apply(o)//调用call或apply方法后就是将作用域改成了我们定义的o对象
+  sayColor.apply(o)//调用call或apply方法后就是将作用域改成了我们定义的o对象。此时this指向的是对象o
   let objectColor = sayColor.bind(b)//bind函数是将this值直接绑定到传给bind函数的对象上，这样即使在全局作用域下调用，指向的对象也是b
   objectColor();
 
