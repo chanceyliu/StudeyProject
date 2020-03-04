@@ -7,6 +7,65 @@
 <body>
 
 <script type="text/javascript">
+  //工厂模式
+  function creatPerson(name, age, job) {
+    let o = new Object();
+    o.name = name;
+    o.age = age;
+    o.job = job;
+    o.sayName = function () {
+      console.log(this.name);
+    };
+    return o;
+  }
+
+  let person1 = creatPerson('张三', '14', '学生');
+  let person2 = creatPerson('李四', '17', '程序员');
+  person1.sayName();
+  console.log(person1)
+
+  //构造函数模式(不用return，作用域直接赋给新对象，既this指向新对象)
+  function Person(name, age, job) {
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    // this.sayName = function () {//这样创建会导致形成两个功能一样，但并不相等的函数，造成资源浪费
+    //   console.log(this.name)
+    // }
+    this.sayName = sayName;//改良，但会导致对象需要很多方法时，会定义多个全局函数，接下来看原型模式
+  }
+
+  function sayName() {
+    console.log(this.name)
+  }
+
+  let person3 = new Person('王五', '14', '学生');
+  let person4 = new Person('赵六', '17', '程序员');
+  console.log(person4);
+  person3.sayName();
+
+
+  //原型模式（P147）
+  function PersonPrototype() {//创建的所有函数都会自带一个prototype原型属性，这是一个指针，指向一个对象
+
+  }
+  PersonPrototype.prototype.name = "王麻子";
+  PersonPrototype.prototype.age = 18;
+  PersonPrototype.prototype.job = "UI设计师";
+  PersonPrototype.prototype.sayName = function () {
+    console.log(this.name)
+  };
+
+  let person5 = new PersonPrototype();
+  let person6 = new PersonPrototype();
+
+  person5.name = "赵铁柱";//为对象实例重定义原型中的同名属性后，指向就会变成新定义的这个值
+  delete person5.name;//只有通过delete将该属性删除后，才会重新指向原型中的同名属性、
+
+  console.log(person5.name)
+  console.log(person6.age)
+  console.log(Object.getPrototypeOf(person5))//Object.getPrototypeOf()返回参数中该实例的原型对象
+  // console.log(PersonPrototype.prototype.constructor)//原型下的constructor会指回这个函数
 
 </script>
 </body>
