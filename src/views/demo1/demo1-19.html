@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2020/03/05 设计模式（原型）</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  // enumerable：Boolean。决定一个属性是否可枚举，既能否被for-in循环找到。
+  //原型模式（P147）
+  function PersonPrototype() {//创建的所有函数都会自带一个prototype原型属性，这是一个指针，指向一个对象
+
+  }
+
+  PersonPrototype.prototype = {//这样设置后constructor将指向Object函数，而不再指向原PersonPrototype函数
+    // constructor: PersonPrototype,//当然如果需要constructor指向原函数，可以这样设置。
+    name: "王麻子",
+    age: 18,
+    job: "UI设计师",
+    sayName: function () {
+      console.log(this.name)
+    }
+  };
+  // 上面的方法设置后，constructor变成了一个可枚举的属性，可以使用下面这种方法来设置
+  Object.defineProperty(PersonPrototype.prototype, "constructor", {
+    enumerable: false,
+    value: PersonPrototype
+  });
+
+  // PersonPrototype.prototype.name = "王麻子";
+  // PersonPrototype.prototype.age = 18;
+  // PersonPrototype.prototype.job = "UI设计师";
+  // PersonPrototype.prototype.sayName = function () {
+  //   console.log(this.name)
+  // };
+
+  let person1 = new PersonPrototype();
+  let person2 = new PersonPrototype();
+
+  person1.name = "赵铁柱";//为对象实例重定义原型中的同名属性后，指向就会变成新定义的这个值
+  delete person1.name;//只有通过delete将该属性删除后，才会重新指向原型中的同名属性、
+
+  console.log(person1)
+  console.log(person2.age)
+
+  let test1 = Object.getPrototypeOf(person1);//Object.getPrototypeOf()返回参数中该实例的原型对象
+
+  let test2 = PersonPrototype.prototype.constructor;//原型下的constructor会指回这个函数
+
+  let test3 = person1.hasOwnProperty("name");//返回true说明该属性存于实例中。false则说明属性在原型中
+
+  let test4 = "name" in person1;//无论存于原型还是实例，只要能在对象中访问到该属性就返回true
+
+  let test5 = Object.keys(PersonPrototype.prototype);//Object.keys接收一个参数，返回该对象下的所有可枚举属性数组
+
+
+
+</script>
+</body>
+</html>

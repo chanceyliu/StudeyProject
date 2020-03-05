@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2020/03/05 设计模式（原型和构造函数组合模式）</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  /**
+   * 被广泛应用的自定义类型的模式
+   * 专属的实例属性定义在构造函数中
+   * 共享的属性定义在原型当中
+   * */
+
+  //定义构造函数
+  function Person(name, age, job) {
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.friends = ['周杰伦','周润发'];
+    // if (typeof this.sayName !== "function") {
+    //   Person.prototype.sayName = function () {
+    //     console.log(this.name);
+    //   }
+    // }
+  }
+
+  // 定义可以共享的属性
+  Person.prototype = {
+    constructor: Person,
+    sayName: function () {
+      console.log(this.name);
+    }
+  };
+
+  let person1 = new Person("张三",18,"前端工程师");
+  let person2 = new Person("李四",18,"后端工程师");
+
+  person1.friends.push('范彬彬');
+  person1.name = "王五"
+
+  console.log(person1)
+  console.log(person2)
+
+  person1.sayName()
+  person2.sayName()
+
+</script>
+</body>
+</html>

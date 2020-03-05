@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>2020/03/03 设计模式</title>
+  <title>2020/03/03 设计模式（工厂和构造函数）</title>
 </head>
 <body>
 
@@ -43,30 +43,6 @@
   let person4 = new Person('赵六', '17', '程序员');
   console.log(person4);
   person3.sayName();
-
-
-  //原型模式（P147）
-  function PersonPrototype() {//创建的所有函数都会自带一个prototype原型属性，这是一个指针，指向一个对象
-
-  }
-  PersonPrototype.prototype.name = "王麻子";
-  PersonPrototype.prototype.age = 18;
-  PersonPrototype.prototype.job = "UI设计师";
-  PersonPrototype.prototype.sayName = function () {
-    console.log(this.name)
-  };
-
-  let person5 = new PersonPrototype();
-  let person6 = new PersonPrototype();
-
-  person5.name = "赵铁柱";//为对象实例重定义原型中的同名属性后，指向就会变成新定义的这个值
-  delete person5.name;//只有通过delete将该属性删除后，才会重新指向原型中的同名属性、
-
-  console.log(person5.name)
-  console.log(person6.age)
-  console.log(Object.getPrototypeOf(person5))//Object.getPrototypeOf()返回参数中该实例的原型对象
-  // console.log(PersonPrototype.prototype.constructor)//原型下的constructor会指回这个函数
-
 </script>
 </body>
 </html>
