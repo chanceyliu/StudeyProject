@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2020/03/07 慕课网编程</title>
+</head>
+<body>
+
+<table border="1" width="50%" id="table">
+  <tr>
+    <th>学号</th>
+    <th>姓名</th>
+    <th>操作</th>
+  </tr>
+  <tr>
+    <td>xh001</td>
+    <td>王小明</td>
+    <td><a href="javascript:void(0);" onclick="deleteCd(event)" >删除</a></td>   <!--在删除按钮上添加点击事件  -->
+  </tr>
+  <tr>
+    <td>xh002</td>
+    <td>刘小芳</td>
+    <td><a href="javascript:void(0);" onclick="deleteCd(event)" >删除</a></td>   <!--在删除按钮上添加点击事件  -->
+  </tr>
+
+</table>
+<input type="button" value="添加一行" onclick="addCd()" />   <!--在添加按钮上添加点击事件  -->
+
+<script type="text/javascript">
+
+  window.onload = function(){
+
+    // 鼠标移动改变背景,可以通过给每行绑定鼠标移上事件和鼠标移除事件来改变所在行背景色。
+    let table = document.getElementsByTagName('tr');
+    for (let i = 0; i < table.length; i++) {
+      table[i].onmouseout = function () {
+        table[i].style.backgroundColor = "#fff"
+      };
+      table[i].onmouseover = function () {
+        table[i].style.backgroundColor = "#f2f2f2"
+      }
+    }
+  };
+
+  // 编写一个函数，供添加按钮调用，动态在表格的最后一行添加子节点；
+  function addCd() {
+    let newNode = document.createElement("tr");
+    let parentTable = document.getElementById('table');
+    newNode.innerHTML = "<td>n</td><td>无名</td><td><a href='javascript:void(0);' onclick='deleteCd(event)' >删除</a></td>";
+    parentTable.childNodes[1].appendChild(newNode);
+  }
+
+  // 创建删除函数
+  function deleteCd(event) {
+    let parentTable = document.getElementById('table');
+    parentTable.childNodes[1].removeChild(event.srcElement.parentNode.parentNode)
+  }
+
+</script>
+</body>
+</html>
