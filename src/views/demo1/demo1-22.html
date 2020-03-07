@@ -39,7 +39,6 @@
       }
     }
   };
-
   // 编写一个函数，供添加按钮调用，动态在表格的最后一行添加子节点；
   function addCd() {
     let newNode = document.createElement("tr");
@@ -47,7 +46,6 @@
     newNode.innerHTML = "<td>n</td><td>无名</td><td><a href='javascript:void(0);' onclick='deleteCd(event)' >删除</a></td>";
     parentTable.childNodes[1].appendChild(newNode);
   }
-
   // 创建删除函数
   function deleteCd(event) {
     let parentTable = document.getElementById('table');
