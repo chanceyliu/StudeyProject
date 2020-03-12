@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>2020/03/06 继承</title>
+  <title>2020/03/06 继承（有待深入理解）</title>
 </head>
 <body>
 
@@ -57,7 +57,9 @@
   // console.log(instance1.age)
   // console.log(instance1)
 
-  //组合继承，结合原型链和借用构造函数
+  /**
+   * 组合继承，结合原型链和借用构造函数p168
+   */
   function Parent2(name) {
     this.name = name;
     this.colors = ['green', 'red', 'white']
@@ -86,6 +88,47 @@
 
   let instance3 = new Son2("王五", 41);
   console.log(instance3)
+  /**
+   * 原型式继承p169
+   */
+
+  /**
+   * 寄生式继承p171
+   */
+
+  /**
+   * 寄生式组合继承p172
+   */
+
+  function inheritPrototype(subType, superType) {
+    var prototype = object(superType.prototype);//创建超类型原型（既父类superType）的一个副本
+    prototype.constructor = subType;//为副本添加因为重写原型后而失去的constructor属性
+    subType.prototype = prototype;//将副本赋值给子类型的原型
+  }
+
+  function SuperType3(name) {//创建超类型构造函数
+    this.name = name;
+    this.colors = ['red','blue','green'];
+  }
+
+  SuperType3.prototype.sayName = function () {//给父类原型创建了一个方法
+    console.log(this.name);
+  }
+
+  function SubType3(name, age) {//创建子类构造函数
+    SuperType3.call(this,name);//调用超类型构造函数传入参数name
+
+    this.age = age
+  }
+
+  inheritPrototype(SubType3,SuperType3);
+
+  SubType3.prototype.sayAge = function () {//给子类原型创建了一个方法
+    console.log(this.age)
+  }
+
+
+
 
 </script>
 </body>

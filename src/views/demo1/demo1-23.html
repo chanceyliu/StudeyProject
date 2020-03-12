@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2020/03/09 函数表达式（闭包）</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+  /**
+   * 作用域链：内部环境可通过作用域链层层向上访问所有外部环境，外部环境不能向下访问内部环境
+   * */
+
+  let color = "red";//全局作用域下的变量
+  function changeColor() {
+    //属于changeColor函数作用域下的变量，在这个作用域可以访问全局作用域下的color变量
+    let firstColor = "blue";
+    function swapColors() {
+      //swapColors函数作用域下的变量，在该作用域下可访问它之上的所用外部变量作用域既changeColor和全局作用域
+      let secondColor = firstColor;
+      firstColor = color;
+      color = secondColor;
+    }
+    swapColors();
+  }
+  changeColor();
+  /**
+   * 垃圾回收机制
+   * （1）一个对象不再被引用，那么这个对象就会被回收。
+   * （2）如果两个对象相互引用，但没有被第三者引用，那么这两个相互引用的对象还是会被回收。
+   * */
+
+  var g = (function () {
+    var i = 1;
+    return function () {
+      i++;
+      alert(i);
+    }
+  })();
+
+
+  function factorial(num) {
+    if (num <= 1){
+      return 1;
+    } else {
+      return num * arguments.callee(num + 1);//arguments.callee指向正在执行的函数的指针
+    }
+  }
+
+  //闭包理解
+  function createTest(propertyName) {
+    return function (object1, object2) {//将函数作为函数内部的返回值形成闭包
+
+      //该匿名函数的作用域链包括他自身和他的所有父级
+      var value1 = object1[propertyName];
+      var value2 = object2[propertyName];
+
+      if (value1 < value1) {
+        return -1;
+      } else if (value1 > value2) {
+        return 1;
+      }else{
+        return 0;
+      }
+    }
+  }
+
+  var compare = createTest("name");
+  var result = compare({name:"张三"},{name:"李四"});//函数内部的匿名函数的作用域链仍然在引用createTest这个活动对象
+  console.log(result);
+  compare = null;//解除对匿名函数的引用
+
+  function createFunction() {
+    var result = new Array();
+    for (var i = 0; i < 10; i++) {
+      result[i] = function (num) {
+        return function () {
+          return num
+        };
+      }(i)
+    }
+    return result;
+  }
+  console.log(createFunction())
+</script>
+</body>
+</html>
