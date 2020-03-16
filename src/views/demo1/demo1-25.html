@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2020/03/15 老虎集团笔试</title>
+</head>
+<style>
+  .ipo-info{
+    width: 700px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .ipo-attr{
+    width: 40%;
+    /*height: 50px;*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .ipo-attr label{
+    color: #c7b3ff;
+  }
+</style>
+<body>
+<ul class="ipo-info">
+  <li class="ipo-attr">
+    <label>时间</label>
+    <p>123456个字</p>
+  </li>
+  <li class="ipo-attr"><label>超级低点</label><p>两个字</p></li>
+  <li class="ipo-attr"><label>超级低点</label><p>12345个字</p></li>
+  <li class="ipo-attr"><label>超级低点</label><p>123456个字</p></li>
+  <li class="ipo-attr"><label>超级低点</label><p>123456个字</p></li>
+  <li class="ipo-attr"><label>时间</label><p>123456个字</p></li>
+</ul>
+<script type="text/javascript">
+  // let arr = document.getElementsByTagName('li');
+  // let arr2 = [];
+  // for (let i = arr.length - 1; i >= 0; i--) {
+  //   arr2.push(arr[i])
+  // }
+  // let arr3 = document.getElementsByClassName('list');
+  // arr3.innerHTML = JSON.stringify(...arr2)
+  for (var i = 0; i < 5; i++) {
+    setTimeout(function () {
+      console.log(i)
+    },i*100)
+  }
+  let {bar:foo,bar='foo'} = {foo:'foo',bar:'bar'}
+  console.log(foo,bar)
+</script>
+</body>
+</html>

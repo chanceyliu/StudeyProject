@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2020/03/16 每日一题 （LeetCode）</title>
+</head>
+
+<body>
+
+<script type="text/javascript">
+  /**
+   * 1.
+   * 字符串压缩。利用字符重复出现的次数，编写一种方法，实现基本的字符串压缩功能。
+   * 比如，字符串aabcccccaaa会变为a2b1c5a3。若“压缩”后的字符串没有变短，则返回原先的字符串。
+   * 你可以假设字符串中只包含大小写英文字母（a至z）。
+   *
+   *额外收获：利用split以传入参数为断点隔开字符的特性，可很快得出一个字符在一个字符串中出现了几次
+   * */
+  function compressString(str) {
+    let arr1 = str.split('');
+    let arr2 = [];
+    let count = 1;
+    for (let i = 0; i < arr1.length; i++) {
+      if (arr1[i] === arr1[i + 1]) {
+        count++
+      } else {
+        arr2.push(arr1[i] + count);
+        count = 1;
+      }
+    }
+    let result = arr2.join('');
+    return result.length >= str.length ? str : result
+  }
+</script>
+</body>
+</html>
