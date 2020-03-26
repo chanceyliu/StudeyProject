@@ -16,14 +16,17 @@
   function changeColor() {
     //属于changeColor函数作用域下的变量，在这个作用域可以访问全局作用域下的color变量
     let firstColor = "blue";
+
     function swapColors() {
       //swapColors函数作用域下的变量，在该作用域下可访问它之上的所用外部变量作用域既changeColor和全局作用域
       let secondColor = firstColor;
       firstColor = color;
       color = secondColor;
     }
+
     swapColors();
   }
+
   changeColor();
   /**
    * 垃圾回收机制
@@ -41,7 +44,7 @@
 
 
   function factorial(num) {
-    if (num <= 1){
+    if (num <= 1) {
       return 1;
     } else {
       return num * arguments.callee(num + 1);//arguments.callee指向正在执行的函数的指针
@@ -60,14 +63,14 @@
         return -1;
       } else if (value1 > value2) {
         return 1;
-      }else{
+      } else {
         return 0;
       }
     }
   }
 
   var compare = createTest("name");
-  var result = compare({name:"张三"},{name:"李四"});//函数内部的匿名函数的作用域链仍然在引用createTest这个活动对象
+  var result = compare({name: "张三"}, {name: "李四"});//函数内部的匿名函数的作用域链仍然在引用createTest这个活动对象
   console.log(result);
   compare = null;//解除对匿名函数的引用
 
@@ -82,7 +85,45 @@
     }
     return result;
   }
+
   console.log(createFunction())
+
+  /**
+   * 模仿块级作用域
+   * */
+
+  function outputNumbers(count) {
+    for (let i = 0; i < count; i++) {
+      console.log('一',i)
+    }
+    var i;
+    //这里的i虽然是在for循环中声明的，但是只要在函数内部其他位置访问不会报错，因为js中不存在块级作用域。
+    // console.log(i)
+  }
+  outputNumbers(5)
+
+  function outputNumbers1(count) {
+    //通过匿名函数模仿块级作用域
+    //将函数声明转换为函数表达式，只需要像下面这样给函数声明加上一对括号即可，后面接的一对括号表示调用该函数
+    //这样这个匿名函数内部就形成了一个私有作用域
+    (function () {
+      for (let i = 0; i < count; i++) {
+        console.log('三',i)
+      }
+    })();
+    //这样会报错，因为现在的i是一个私有变量，只能在这个匿名函数的内部访问
+    // console.log(i)
+  }
+  // outputNumbers1(3)
+
+  (function () {
+    let now = new Date();
+    if (now.getMonth() == 2) {
+      alert('happy')
+    }
+  })()
+
+
 </script>
 </body>
 </html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2020/03/18 美菜笔试</title>
+</head>
+
+<body>
+
+<script type="text/javascript">
+  // 1.三数之和
+  function num(arr) {
+    let newArr = arr.split(',');
+    console.log(newArr)
+    let count = [];
+    for (let i = 0; i < newArr.length; i++) {
+      for (let j = 0; j < newArr.length; j++){
+        for (let k = 0; k < newArr.length; k++){
+          if (Number(newArr[i]) + Number(newArr[j]) + Number(newArr[k]) === 0) {
+            count.push({
+              a:newArr[i],
+              b:newArr[j],
+              c:newArr[k],
+            });
+          }
+        }
+      }
+    }
+    return count
+  }
+
+  console.log(num('-4,-2,0,1,1,4,6'))
+</script>
+</body>
+</html>
