@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2020/4/8 Bom学习</title>
+</head>
+<body>
+<button onclick="test()">点我</button>
+
+<script type="text/javascript">
+  /**
+   * 一切全局变量/函数都是window对象的属性
+   * window.screenLeft获取浏览器窗口距离屏幕左边的距离，x坐标
+   * window.screenTop获取浏览器窗口距离屏幕上边的距离，y坐标
+   * （以屏幕左上角为原点，向右为x轴，向下为y轴。）
+   * window.innerWidth获取浏览器窗口宽度
+   * window.innerHeight获取浏览器窗口高度
+   * */
+
+  /**
+   * 以下几个方法大概率会被浏览器禁用,参数都为number类型
+   * （以屏幕左上角为原点，向右为x轴，向下为y轴。）
+   * 移动浏览器窗口位置
+   * window.moveTo(x,y)移动至xy坐标
+   * window.moveBy(x,y)向下移动y个像素，向左移动s个像素
+   * 改变浏览器窗口大小
+   * window.resizeTo(x,y)将浏览器窗口变为宽x高y
+   * window.resizeBy(x,y)将浏览器窗口加宽x加高y
+   * */
+  window.resizeTo(200,300);
+  let count = 1;
+  function test() {
+    // count++;
+    // console.log(count)
+    window.resizeBy(200,300);
+    console.log(window.innerWidth)
+  }
+</script>
+</body>
+</html>

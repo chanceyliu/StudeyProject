@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2020/3/27 欧科笔试</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  /**
+   * 打印字符串中出现次数最多的那个数字及出现次数
+   * 输入：1,5,3,2,5,3,9,3,2,3,2,1,5,3 输出：3 5
+   * */
+  // 我的思路
+  function maxStr(str) {
+    let strArr = str.split(',');
+    let result = [];
+    let flag = 0;
+    // 去重
+    let newArr = strArr.filter((item, index, arr) => {
+      return arr.indexOf(item) === index
+    });
+    // 找出每个数字的出现次数
+    for (let i of newArr) {
+      result.push({
+        value: i,
+        count: (str.split(i)).length - 1
+      })
+    }
+    for (let j = 0; j < result.length - 1; j++) {
+      if (result[j].count > result[j + 1].count) {
+        flag = j - 1
+      }
+    }
+    return result[flag].value + ' ' + result[flag].count;
+  }
+
+  //别人的思路
+  function maxCount(str) {
+    let obj = {};
+    // 这个for循环就将字符串中出现的值和该值的次数存储到一个对象里了，以值为属性，次数为值
+    for (let i = 0; i < str.length; i++) {
+      let key = str[i];
+      if (obj[key]) {
+        obj[key]++;
+      } else {
+        obj[key] = 1;
+      }
+    }
+    // 这里的思路是找到上面组装的对象中值最大，既出现次数最多的属性
+    let maxCount = 0;
+    let maxString = "";
+    for (let key in obj) {
+      if (maxCount < obj[key]) {
+        maxCount = obj[key];
+        maxString = key;
+      }
+    }
+    return "出现次数最多的字母:" + maxString + "出现了" + maxCount + "次";
+  }
+
+  /**
+   * 打印相邻重复字母的字符串
+   * 输入：aacdccfttt 输出：aa cc ttt
+   * */
+  function test(str) {
+    let strArr = str.split('');
+    let test2 = {};
+    let count = 1;
+    for (let i = 0; i < strArr.length; i++) {
+      // 这个if是为了判断是否是相邻重复元素
+      if (strArr[i] === strArr[i - 1]) {
+        count++;
+        // 这个if是为了将重复元素及重复元素的次数填入test2对象
+        if (!test2[strArr[i]]) {
+          test2[strArr[i]] = count
+        } else {
+          test2[strArr[i]] = count++
+        }
+      } else {
+        count = 1
+      }
+    }
+    let result = '';
+    for (let j in test2) {
+      result += testDg(j,test2[j]) + ' '
+    }
+    console.log(result)
+  }
+
+  function testDg(str, num) {
+    //利用三元表达式加递归输出重复字符
+    return num > 1 ? str += testDg(str, --num) : str
+  }
+
+  test('aacdccfttt');
+</script>
+</body>
+</html>

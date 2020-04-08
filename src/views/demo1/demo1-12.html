@@ -50,6 +50,30 @@
       }
     })
   }
+
+  /**
+   * 构建 Promise 对象时，需要传入一个 executor 函数，主要业务流程都在 executor 函数中执行。
+   * Promise构造函数执行时立即调用executor 函数， resolve 和 reject 两个函数作为参数传递给executor，
+   * resolve 和 reject 函数被调用时，分别将promise的状态改为fulfilled（完成）或rejected（失败）。一旦状态改变，就不会再变，任何时候都可以得到这个结果。
+   * 在 executor 函数中调用 resolve 函数后，会触发 promise.then 设置的回调函数；而调用 reject 函数后，会触发 promise.catch 设置的回调函数。
+   *
+   * Promise 是用来管理异步编程的，它本身不是异步的
+   * */
+
+  let p1 = new Promise((resolve,reject)=>{
+    console.log(1);
+    reject('浪里行舟')
+    console.log(2)
+  });
+  // then:设置成功或者失败后处理的方法
+  p1.then(result=>{
+    //p1延迟绑定回调函数
+    console.log('成功 '+result)
+  },reason=>{
+    console.log('失败 '+reason)
+  });
+  console.log(3)
+
 </script>
 </body>
 </html>

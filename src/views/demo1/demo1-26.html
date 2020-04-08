@@ -41,6 +41,79 @@
   function massage(a) {
 
   }
+
+  /**
+   * 3.
+   * 打印相邻重复字母的字符串
+   * 输入：aacdccfttt 输出：aa cc ttt
+   *
+   * 收获：利用三元表达式加递归输出重复字符
+   * */
+  function test(str) {
+    let strArr = str.split('');
+    let obj = {};
+    let count = 1;
+    let result = '';
+    for (let i = 0; i < strArr.length; i++) {
+      // 这个if是为了判断是否是相邻重复元素
+      if (strArr[i] === strArr[i - 1]) {
+        count++;
+        // 这个if是为了将重复元素及重复元素的次数填入obj对象
+        if (!obj[strArr[i]]) {
+          obj[strArr[i]] = count
+        } else {
+          obj[strArr[i]] = count++
+        }
+      } else {
+        count = 1
+      }
+    }
+    for (let j in obj) {
+      result += testDg(j, obj[j]) + ' '
+    }
+  }
+
+  function testDg(str, num) {
+    //利用三元表达式加递归输出重复字符
+    return num > 1 ? str += testDg(str, --num) : str
+  }
+
+  /**
+   * 4.
+   * 判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。
+   * 输入：121 输出：true  输入：-121 输出：false
+   *
+   * 收获：reverse逆转数组顺序,Math.floor(x)x向下取整。
+   * */
+  // 我的思路
+  function test2(num) {
+    if (num < 0) {
+      return false;
+    }
+    let arr = String(num).split('');
+    let newArr = arr.reverse();
+    let str = Number(newArr.join(''));
+    return num === str;
+  }
+  // 别人的思路
+  function test2_1(num) {
+    if (num < 0) {
+      return false;
+    }
+    let flag = true;
+    let newNum = String(num);
+    let len = newNum.length;
+    // 循环比较的最大长度是Math.floor(len/2)
+    // 循环依次对比首尾数字，既第一位与倒数第一位、第二位与倒数第二位比较，只要有一位不相等就不是回文数字
+    for (let i = 0 ; i < len / 2; i++) {
+      if (newNum[i] !== newNum[len - 1 - i]) {
+        flag = false;
+        break;
+      }
+    }
+    return flag;
+  }
+  // console.log(test2(11115))
 </script>
 </body>
 </html>
