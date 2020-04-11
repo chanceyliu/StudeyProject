@@ -15,6 +15,9 @@
    * （以屏幕左上角为原点，向右为x轴，向下为y轴。）
    * window.innerWidth获取浏览器窗口宽度
    * window.innerHeight获取浏览器窗口高度
+   * 获取电脑屏幕尺寸
+   * screen.height
+   * screen.width
    * */
 
   /**
@@ -29,12 +32,25 @@
    * */
   window.resizeTo(200,300);
   let count = 1;
+  // let wroxWin = window.open('www.joinqq.com');
   function test() {
-    // count++;
-    // console.log(count)
-    window.resizeBy(200,300);
-    console.log(window.innerWidth)
+    let wroxWin = window.open('www.joinqq.com');
   }
+  /**
+   * setTimeout指定的时间过后执行代码（超时调用）
+   * clearTimeout取消setTimeout调用
+   *
+   * setInterval每隔多少秒执行一次代码（间歇调用）
+   *clearInterval取消setInterval调用
+   *
+   * PS:尽量不适用间歇调用，而用超时调用来模拟间歇调用
+   * */
+
+  let timeId = setTimeout(function () {
+    alert('11')
+  },1000);
+  clearTimeout(timeId)
+
 </script>
 </body>
 </html>
