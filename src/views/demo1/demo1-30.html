@@ -33,9 +33,9 @@
   window.resizeTo(200,300);
   let count = 1;
   // let wroxWin = window.open('www.joinqq.com');
-  function test() {
-    let wroxWin = window.open('www.joinqq.com');
-  }
+  // function test() {
+  //   let wroxWin = window.open('www.joinqq.com');
+  // }
   /**
    * setTimeout指定的时间过后执行代码（超时调用）
    * clearTimeout取消setTimeout调用
@@ -50,6 +50,44 @@
     alert('11')
   },1000);
   clearTimeout(timeId)
+
+  /**
+   * location可获取URL信息，还可帮助页面重定向、刷新等
+   * */
+  // console.log(window.location.hash)
+  // console.log(window.location.host)
+  // console.log(window.location.hostname)
+  // console.log(window.location.href)
+  // console.log(window.location.pathname)
+  // console.log(window.location.search)
+
+
+  /**
+   * navigator识别客户端浏览器,可获取浏览器版本号、安装插件等信息
+   * */
+  // console.log(window.navigator.appCodeName);
+  // console.log(window.navigator.appVersion);
+  // console.log(window.navigator.cookieEnabled);
+  // console.log(window.navigator.javaEnabled());
+  // console.log(window.navigator.language);
+  // console.log(window.navigator.plugins);
+
+
+  /**
+   * screen可用来获取电脑显示器宽高等信息
+   * */
+  console.log(window.screen);
+
+  /**
+   * history保存上网的历史记录
+   * */
+  console.log(window.history);
+  function test() {
+    history.go(1)
+  }
+
+  // console.log(history.length === 0)检测是否是用户打开的第一个页面
+
 
 </script>
 </body>
