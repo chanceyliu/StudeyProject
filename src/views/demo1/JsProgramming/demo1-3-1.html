@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>基本概念</title>
+  <title>Js高程 第3章 基本概念（1）数据类型</title>
 </head>
 <body>
 
 <script type="text/javascript">
+  //基本类型 undefined,null,Boolean,String.Number,引用类型Object,Array,Function
   function test() {
-    let message = "hi";
+    let message = "11";
     if (message) {
       alert("该字符为true")
     } else {
@@ -34,10 +35,10 @@
     }
   };
 
-  console.log(people || o)
+  console.log(people || o);
   function a() {
     if (num6) {
-      console.log(people.age)
+      console.log(people.age);
       return;
     }
     console.log(people.toString())

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ajax学习</title>
+  <title>Js高程 第21章 ajax学习（1）</title>
 </head>
 <body>
 <script type="text/javascript">
@@ -19,14 +19,14 @@
     }
   };
   xhr.open("get", url, false);//准备请求
-  xhr.setRequestHeader("MyHeader", "MyValue")//自定义头部信息
+  xhr.setRequestHeader("MyHeader", "MyValue");//自定义头部信息
   xhr.send(null);//发送请求，接收一个参数作为请求主体发送的数据，调用该方法后，请求会被分派到服务器（多用于post请求发送请求数据）
   xhr.abort();//取消异步请求，调用后xhr对象会停止触发事件
   let myHeader = xhr.getResponseHeader("MyHeader");//获取参数对应的头部信息
   let allHeaders = xhr.getAllResponseHeaders();//获取所有头部信息
 
   function addUrlParam(url, name, value) {//组装正确格式的URL
-    url += (url.indexOf("?") === -1 ? "?" : "&")
+    url += (url.indexOf("?") === -1 ? "?" : "&");
     url += encodeURIComponent(name) + "=" + encodeURIComponent(value);
     return url
   }

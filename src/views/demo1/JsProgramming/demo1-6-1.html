@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>2020/03/03 设计模式（工厂和构造函数）</title>
+  <title>Js高程 第6章 面向对象的程序设计（1） 设计模式（工厂和构造函数）</title>
 </head>
 <body>
 
@@ -22,7 +22,7 @@
   let person1 = creatPerson('张三', '14', '学生');
   let person2 = creatPerson('李四', '17', '程序员');
   person1.sayName();
-  console.log(person1)
+  console.log(person1);
 
   //构造函数模式(不用return，作用域直接赋给新对象，既this指向新对象)
   function Person(name, age, job) {

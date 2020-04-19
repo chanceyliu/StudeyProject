@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Js高程 第10章 Dom</title>
+</head>
+<body>
+<p>Hello Word!</p>
+<ul id="nodeUl">
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+</ul>
+<script type="text/javascript">
+  console.log(document.documentElement);
+  console.log(document.body);
+  // 域名
+  console.log(document.domain);
+  console.log(document.URL);
+  console.log(document.referrer);
+  let someNode = document.getElementById('nodeUl');
+  let template = '<li>4</li>';
+  // someNode.appendChild(li);
+
+  function covertToArray(nodes) {
+    let array = null;
+    try {
+      array = Array.prototype.slice.call(nodes, 0);
+    } catch (e) {
+      array = new Array();
+      let len = nodes.length;
+      for (let i = 0; i < len; i++) {
+        array.push(nodes[i])
+      }
+    }
+    return array
+  }
+
+</script>
+</body>
+</html>

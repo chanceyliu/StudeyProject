@@ -2,28 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>2020/02/28</title>
+  <title>2020/02/28 杂文</title>
 </head>
 <body>
 
 <script type="text/javascript">
-  let re = null
+  let re = null;
   for (let i = 0; i < 10; i++) {
-    re = new RegExp('cat','g')
+    re = new RegExp('cat','g');
     console.log(re.test("catastrophe"))
   }
 
-  let text = "cat,bat,sat,fat"
-  let pattern1 = /.at/g
-  let matches = pattern1.exec(text)
-  console.log(matches)
-  console.log(matches[0])
+  let text = "cat,bat,sat,fat";
+  let pattern1 = /.at/g;
+  let matches = pattern1.exec(text);
+  console.log(matches);
+  console.log(matches[0]);
 
   let test1 = function (sum1, sum2) {
     return sum1+sum2
-  }
-  let a = test1(1,5)
-  console.log(a)
+  };
+  let a = test1(1,5);
+  console.log(a);
   
   function Person(name,age,sex) {
     this.name = name;

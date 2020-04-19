@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>2020/03/09 函数表达式（闭包）</title>
+  <title>Js高程 第7章 函数表达式（1）（闭包）</title>
 </head>
 <body>
 
@@ -100,7 +100,7 @@
     //这里的i虽然是在for循环中声明的，但是只要在函数内部其他位置访问不会报错，因为js中不存在块级作用域。
     // console.log(i)
   }
-  outputNumbers(5)
+  outputNumbers(5);
 
   function outputNumbers1(count) {
     //通过匿名函数模仿块级作用域
@@ -121,7 +121,7 @@
     if (now.getMonth() == 2) {
       alert('happy')
     }
-  })()
+  })();
 
   // 模块模式
   var application = function () {

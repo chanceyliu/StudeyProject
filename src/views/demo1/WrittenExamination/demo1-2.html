@@ -11,12 +11,12 @@
   function searchUrl(url, str) {
     let data = [];
     let firstFlag = url.indexOf('?');
-    let resultStr = url.substring(firstFlag + 1)
+    let resultStr = url.substring(firstFlag + 1);
     let strData = resultStr.split('&');
     for (let s of strData) {
       data.push(s.split('='))
     }
-    console.log(data)
+    console.log(data);
     for (let d of data) {
       if (str === d[0]) {
         return 'true';

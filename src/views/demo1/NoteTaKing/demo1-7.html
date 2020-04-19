@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>2020/2/21</title>
+  <title>2020/2/21 reduce和filter方法</title>
 </head>
 <body>
 <script type="text/javascript">
@@ -17,19 +17,19 @@
 
   let person = { name: "liu" };
   let people = [{ name: "liu" }];
-  let  morePeople = [people]
-  console.log(morePeople)
+  let  morePeople = [people];
+  console.log(morePeople);
   //数组去重
   let a = arr2.filter((item,index,array) => {
     return index === array.indexOf(item)
-  })
-  console.log(a)
+  });
+  console.log(a);
 
   //数组求和
   let b = arr2.reduce((prev,cur,index) => {
     return prev + cur;//执行后的返回值会作为第一个参数自动传给下一项
-  })
-  console.log(b)
+  });
+  console.log(b);
 
   let start = Date.now();
   // doSomething();
