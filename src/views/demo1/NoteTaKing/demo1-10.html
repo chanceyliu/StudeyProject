@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2020/05/10 链表结构</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  // 参考链接https://juejin.im/entry/59cb70995188256aa423b680
+
+
+  // 一个Node类表示节点
+  function Node(element) {
+    this.element = element;//当前节点的数据
+    this.next = null;//下一个节点数据
+  }
+
+  //定义一个LinkedList类，提供插入节点，删除节点等方法
+  function LinkedList() {
+    this.head = new Node("head")//这是头结点
+  }
+
+  // 给这个类的原型上定义方法
+  LinkedList.prototype = {
+    // 查找方法
+    find: function (item) {
+      // 确定链表的入口
+      let currNode = this.head;
+      // 直到找到要找的元素为止
+      while (currNode.element !== item) {
+        currNode = currNode.next
+      }
+      return currNode;
+    },
+    // 插入节点方法
+    insert: function (newElement, item) {
+      // 定义我们要插入的节点
+      let newNode = new Node(newElement);
+      // 找到我们要在插入的节点位置
+      let current = this.find(item);
+      // 给新节点添加后继节点指向指定节点的后继节点
+      newNode.next = current.next;
+      // 让指定节点的后继节点指向新节点，完成插入
+      current.next = newNode
+    },
+    // 找到节点的上一个节点
+    findPrev: function(item) {
+      let currNode = this.head;
+      // 循环链表，直到找到一个元素的下一个元素等于要查找的元素，这个元素就是我们查找元素的前驱节点
+      while ((currNode.next !== null) && (currNode.next.element !== item)) {
+        currNode = currNode.next;
+      }
+      return currNode;
+    },
+    // 删除节点
+    remove: function (item) {
+      // 同样，先确定链表入口
+      let prevNode = this.findPrev(item);
+      // 如果要删除的节点不是最后一个节点
+      if (prevNode.next !== null) {
+        // 使要删除的节点的上一个节点指向要删除节点的下一个节点
+        prevNode.next = prevNode.next.next;
+      }
+    },
+    // 显示所有节点
+    display:function () {
+      let currNode = this.head;
+      // 直到找到链表尾部
+      while (!(currNode.next === null)) {
+        console.log(currNode.next.element);
+        currNode = currNode.next;
+      }
+    }
+  };
+
+  // 创建一个链表，目前只有头结点，也就是空链表
+  let colors = new LinkedList();
+  // 在头结点的下一位插入一个red元素
+  colors.insert('red','head');
+  // 在头结点的下一位插入一个yellow元素
+  colors.insert('yellow','head');
+  // 在yellow结点的下一位插入一个blue元素
+  colors.insert('blue','yellow');
+  colors.findPrev('red');
+  // colors.display();
+
+</script>
+</body>
+</html>
