@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2020/03/32 （数组tag）中等难度</title>
+</head>
+
+<body>
+
+<script type="text/javascript">
+  /**
+   * 思想汇总：
+   * 1.找规律；
+   *
+   * */
+
+  /**
+   * 11. 盛最多水的容器
+   *
+   *收获：
+   * */
+// 1.双指针
+  function maxArea(height) {
+    // 定位两个指针在数组的左右方
+    let left = 0;
+    let right = height.length - 1;
+    let result = 0;
+    while (left < right) {
+      // 容器的宽就是两数坐标之差
+      let x = right - left;
+      // 容器的高就是两数之间较小的数
+      let y = height[left] <= height[right] ? height[left] : height[right];
+      result = (x * y) >= result ? (x * y) : result;
+      // 那边的数较小我们就移动那边的数，去寻找是否有更大值
+      // 因为容器的高取决于两数间较小值，我们可以牺牲宽度，寻求更大高度
+      if (height[right] > height[left]) {
+        left++
+      } else {
+        right--
+      }
+    }
+    return result;
+  }
+
+  /**
+   * 15. 三数之和
+   *
+   *  nums = [-1, 0, 1, 2, -1, -4]，
+   *
+   *收获：
+   * */
+  // 先对数组进行排序，选定一个数，剩下两个符合条件的数用双指针法来寻找，记得重复数字跳过以免出现重复数组
+  function threeSum(nums) {
+    let result = [];
+    if (nums.length <= 3) {
+      return result
+    }
+    nums.sort((a, b) => {
+      return a - b
+    });
+    if (nums[0] > 0) {
+      return result
+    }
+    for (let i = 0; i < nums.length; i++) {
+      // 因为是排过序的，如果第一个数大于0，说明没有负数，既没有满足条件的数
+      if (i > 0 && nums[i] === nums[i - 1]) {
+        continue
+      }
+      // 定义较小指针为定数右边一位的数，大指针为数组末尾既最大数
+      let left = i + 1;
+      let right = nums.length - 1;
+      // 进行双指针比较，三数之和如果小于0，移动较小指针；三数之和大于0，移动较大指针
+      // 三数之和等于0，需要去重操作，既如果较小指针的下一个数跟它相等，left++,跳过该数
+      // 如果较大指针的上一个数跟它相等，right--,跳过该数
+      while (left < right) {
+        let sum = nums[i] + nums[left] + nums[right];
+        if (sum === 0) {
+          result.push([nums[i], nums[left], nums[right]]);
+          while (left<right && nums[left] === nums[left + 1]) {
+            left++;
+          }
+          while (left<right&&nums[right] === nums[right - 1]) {
+            right--;
+          }
+          left++;
+          right--;
+        } else if (sum < 0) {
+          left++;
+        } else if (sum > 0) {
+          right--;
+        }
+      }
+    }
+    return result
+  }
+
+  console.log(threeSum([-1, 0, 1, 2, -1, -4]))
+
+
+</script>
+</body>
+</html>
