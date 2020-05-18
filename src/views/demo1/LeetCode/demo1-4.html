@@ -130,7 +130,6 @@
    *
    *收获：不算完全理解
    * */
-
   function nextPermutation(nums) {
     let start = 0;
     let end = nums.length - 1;
@@ -143,7 +142,6 @@
         break;
       }
     }
-
     // 继续从后往前找，找到降序集合中靠右边的数字为止，找一个比降序集合中靠左边的数字稍大一点的数
     if (left > 0) {
       for (; right >= left; right--) {
@@ -156,12 +154,10 @@
       // 取降序集合右边数为起点，结束点还是数组末尾，接下来将这一段数组按照升序排列，最终得到的数字才是正好比当前组合数字稍大的数
       start = left;
     }
-
     let sum = start + end;
     for (let i = start; i <= sum / 2; i++) {
       swap(nums, i, sum - i)
     }
-
     function swap(list, i, j) {
       let tem = list[i];
       list[i] = list[j];
