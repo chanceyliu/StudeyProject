@@ -11,7 +11,7 @@
   /**
    * 思想汇总：
    * 1.找规律；
-   *
+   * 2.中等难度题略有难度，还需要多练
    * */
 
   /**
@@ -158,12 +158,50 @@
     for (let i = start; i <= sum / 2; i++) {
       swap(nums, i, sum - i)
     }
+
     function swap(list, i, j) {
       let tem = list[i];
       list[i] = list[j];
       list[j] = tem;
     }
   }
+
+  /**
+   * 33. 搜索旋转排序数组
+   *
+   *收获：
+   * */
+  function search(nums, target) {
+    let start = 0;
+    let end = nums.length - 1;
+    while (start <= end) {
+      let mid = Math.floor((start + end)/2);
+      if (target === nums[mid]) {
+        return mid
+      }
+      // 先判断mid属于左边升序数组，还是右边升序数组
+      if (nums[mid] >= nums[start]) {
+        // 再判断目标值在左半段还是右半段
+        // 当目标值小于中间值并且大于nums[0]时说明值在左半段
+        if (target < nums[mid] && target >= nums[start]) {
+          end = mid - 1;
+        } else {
+          start = mid + 1;
+        }
+      } else {
+        // 当目标值大于中间值并且小于nums[nums.length - 1]时说明值在右半段
+        if (target > nums[mid] && target <= nums[end]) {
+          start = mid + 1;
+        } else {
+          end = mid + 1;
+        }
+      }
+    }
+    return -1
+  }
+
+  console.log(search([5,1,3],0))
+
 
 </script>
 </body>
