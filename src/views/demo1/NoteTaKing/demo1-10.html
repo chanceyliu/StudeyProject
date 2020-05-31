@@ -45,7 +45,7 @@
       current.next = newNode
     },
     // 找到节点的上一个节点
-    findPrev: function(item) {
+    findPrev: function (item) {
       let currNode = this.head;
       // 循环链表，直到找到一个元素的下一个元素等于要查找的元素，这个元素就是我们查找元素的前驱节点
       while ((currNode.next !== null) && (currNode.next.element !== item)) {
@@ -64,7 +64,7 @@
       }
     },
     // 显示所有节点
-    display:function () {
+    display: function () {
       let currNode = this.head;
       // 直到找到链表尾部
       while (!(currNode.next === null)) {
@@ -77,14 +77,33 @@
   // 创建一个链表，目前只有头结点，也就是空链表
   let colors = new LinkedList();
   // 在头结点的下一位插入一个red元素
-  colors.insert('red','head');
+  colors.insert('red', 'head');
   // 在头结点的下一位插入一个yellow元素
-  colors.insert('yellow','head');
+  colors.insert('yellow', 'head');
   // 在yellow结点的下一位插入一个blue元素
-  colors.insert('blue','yellow');
+  colors.insert('blue', 'yellow');
   colors.findPrev('red');
   // colors.display();
 
+
+  // 立即执行函数
+  (function (a) {
+    console.log('IIfe')
+  })(test11());
+
+  function test11() {
+    console.log('第二个函数')
+  }
+
+  !function () {
+    console.log('b')
+  }();
+  let result = function () {
+    let a = 1;
+    let b = 2;
+    return a + b;
+  }();
+  console.log(result)
 </script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>2020/03/32 二次规划 （数组tag）</title>
+  <title>2020/03/32 二次规划 （数组tag）简单难度</title>
 </head>
 
 <body>
@@ -381,13 +381,56 @@
   // 2.splice
   function rotate2(nums, k) {
     // splice(index1,index2,...item)index1是从哪个位置开始删除，index2是你要删除多少个，...item是多个元素的简写，向数组添加这些元素
-    nums.splice(0,0,...nums.splice(nums.length - k,k));
+    nums.splice(0, 0, ...nums.splice(nums.length - k, k));
     return nums
   }
+
   // 2.splice + concat
   function rotate3(nums, k) {
-    let arr = nums.splice(nums.length - k,k);
+    let arr = nums.splice(nums.length - k, k);
     return arr.concat(nums)
+  }
+
+  /**
+   * 219.存在重复元素||
+   *
+   *收获：pop删除数组末尾的元素，unshift从数组前端插入元素，splice返回删除的数组元素，并替换
+   * */
+
+  function containsNearbyDuplicate(nums, k) {
+    let hashMap = new Map();
+    let flag = true;
+    for (let i = 0; i < nums.length; i++) {
+      if (hashMap.get(nums[i]) === undefined) {
+        hashMap.set(nums[i], i)
+      } else {
+        if (i - hashMap.get(nums[i]) > k) {
+          hashMap.delete(nums[i]);
+          hashMap.set(nums[i], i)
+        } else {
+          flag = true;
+        }
+      }
+    }
+    return flag
+  }
+
+  // 2.窗口滚动，可以把k所限制的范围看做一个窗口，只要在这个窗口内存在相同的元素，就可以返回true了
+  function containsNearbyDuplicate2(nums, k) {
+    let hashSet = new Set();
+    for (let i = 0; i < nums.length; i++) {
+      if (hashSet.has(nums[i])) {
+        return true;
+      }
+      // 如果hashSet中不存在这个值，就添加进去
+      hashSet.add(nums[i]);
+      // 使我们的窗口长度始终维持在k范围大小，所以上面才能够判断只要出现相同元素即可立即返回true
+      if (hashSet.size > k) {
+        // 窗口长度超出k的范围后，删掉数组中的第一个
+        hashSet.delete(nums[i - k])
+      }
+    }
+    return false;
   }
 
 </script>
