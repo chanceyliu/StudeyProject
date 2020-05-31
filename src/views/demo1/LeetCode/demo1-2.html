@@ -415,7 +415,7 @@
     return flag
   }
 
-  // 2.窗口滚动，可以把k所限制的范围看做一个窗口，只要在这个窗口内存在相同的元素，就可以返回true了
+  // 2.窗口滚动，可以把k所限制的范围看做一个窗口，只要在这个窗口内存在相同的元素，就可以返回true
   function containsNearbyDuplicate2(nums, k) {
     let hashSet = new Set();
     for (let i = 0; i < nums.length; i++) {
