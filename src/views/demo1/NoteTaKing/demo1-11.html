@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2020/06/07 算法学习随手记</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  // 递归
+  /**
+   * 斐波那契数列，由0开始
+   * 终止条件：f(0) = 0;f(1) = 1
+   * 递推公式: f(n) = f(n - 1) + f(n - 2)
+   * */
+  function fb(n) {
+    if (n === 0) return 0;
+    if (n === 1) return 1;
+    return fb(n - 1) + fb(n - 2)
+  }
+
+  let testArr = [4, 3, 6, 2, 1, 5, 4, 8, 6];
+
+  // console.time("冒泡排序")
+  // 冒泡排序
+  function mpSort(arr) {
+    for (let i = 0; i < arr.length; i++) {
+      let flag = false;
+      for (let j = 0; j < arr.length - i; j++) {
+        if (arr[j] > arr[j + 1]) {
+          let temp = arr[j];
+          arr[j] = arr[j + 1];
+          arr[j + 1] = temp;
+          flag = true;
+        }
+      }
+      if (!flag) {
+        break
+      }
+    }
+    return arr
+  }
+
+  // console.log(mpSort(testArr))
+  // console.timeEnd("冒泡排序")
+
+
+  // console.time("插入排序")
+  // // 插入排序
+  function crSort(arr) {
+    for (let i = 1; i < arr.length; i++) {
+      let value = arr[i];
+      let j = i - 1;
+      for (; j >= 0; j--) {
+        if (value < arr[j]) {
+          arr[j + 1] = arr[j];
+        } else {
+          break;
+        }
+      }
+      arr[j + 1] = value
+    }
+    return arr
+  }
+
+  // console.log(crSort(testArr))
+  // console.timeEnd("插入排序")
+
+  // console.time("归并排序")
+  // 归并排序
+  function mergeSort(arr) {
+    if (arr.length < 2) {
+      return arr
+    }
+    let mid = Math.floor(arr.length / 2);
+    let leftArr = arr.slice(0, mid);
+    let rightArr = arr.slice(mid);
+    return this.mearge_s(mergeSort(leftArr), mergeSort(rightArr))
+  }
+
+  function mearge_s(leftArr, rightArr) {
+    let result = [];
+    while (leftArr.length > 0 && rightArr.length > 0) {
+      if (leftArr[0] > rightArr[0]) {
+        // 推入较小数组的第一个数据，并从原数组中删除该元素
+        result.push(rightArr.shift())
+      } else {
+        result.push(leftArr.shift())
+      }
+    }
+    // 经过上面的操作，直至将其中一个数组长度减为空，就可以有序将另一个数组剩下的元素直接推入result
+    while (leftArr.length > 0) {
+      result.push(leftArr.shift())
+    }
+    while (rightArr.length > 0) {
+      result.push(rightArr.shift())
+    }
+    return result
+  }
+
+  // console.log(mergeSort(testArr))
+  // console.timeEnd("归并排序")
+
+  // 快速排序
+  // 1.非原地排序，内存占用空间比较多，但是好理解
+  function quickSort(arr) {
+    // 递归调用，分解至只剩一个元素的时候就返回arr
+    if (arr.length < 2) {
+      return arr
+    }
+    let leftArr = [];
+    let rightArr = [];
+    let mid = Math.floor(arr.length / 2);
+    // 从数组中截取我们选择的基准点
+    let pivot = arr.splice(mid, 1)[0];
+    // 比基准点小的放在左边，大的放在右边
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] < pivot) {
+        leftArr.push(arr[i]);
+      } else {
+        rightArr.push(arr[i])
+      }
+    }
+    // 当左右两边排完序后，记得将基准点元素也要插回中间
+    return quickSort(leftArr).concat(pivot, quickSort(rightArr))
+  }
+
+  // 2.原地排序，空间复杂度O(1)，难理解(还未掌握)
+  // function quickSort1(arr) {
+  //   if (arr.length < 2) {
+  //     return arr
+  //   }
+  //   let pivot = arr[0];
+  //   let left = 0;
+  //   let right = arr.length - 1;
+  //   let flag = 0;
+  //   while (left < right) {
+  //     if (arr[right] < arr[flag]) {
+  //       right--;
+  //       this.swap(arr, right, flag);
+  //       flag = right;
+  //     } else if (arr[left] > arr[flag]) {
+  //       left++;
+  //       this.swap(arr, left, flag);
+  //       flag = left;
+  //     }
+  //   }
+  //
+  // }
+  //
+  // function partition(arr, left, right) {
+  //   let key = arr[right];
+  //   while (left < right) {
+  //     while (left < right && arr[left] <= key) {
+  //       ++left;
+  //     }
+  //     while (left < right && arr[right] >= key) {
+  //       --right;
+  //     }
+  //     swap(arr, left, right);
+  //   }
+  //   swap(arr, left, arr.length - 1);
+  //   console.log(arr)
+  // }
+  //
+  // partition([4, 1, 7, 6, 9, 2, 8, 0, 3, 5], 0, 9);
+
+  function swap(arr, i, j) {
+    let temp = i;
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+
+  console.log(crSort([2,0,2,1,1,0]))
+
+</script>
+</body>
+</html>

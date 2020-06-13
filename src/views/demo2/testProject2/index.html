@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>css滚动视差</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+<div id="app">
+  <main class="main">
+    <section class="list-item" v-for="(item,index) in itemList" :key="index">
+      <div class="item-image">
+        <img :src="item.imgSrc" :alt="item.imgAlt">
+      </div>
+      <div class="item-text">
+        <div class="text-title">{{item.imgTitle}}</div>
+        <div class="text-desc">{{item.imgDesc}}</div>
+      </div>
+    </section>
+  </main>
+</div>
+<script type="text/javascript">
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        itemList: [
+          {
+            imgSrc: './img/1.jpg',
+            imgAlt: 'image-1',
+            imgTitle: '【四月是你的谎言】',
+            imgDesc: '我在盛开的樱花树下遇见你，从此命运不再属于自己。'
+          },
+          {
+            imgSrc: './img/2.jpg',
+            imgAlt: 'image-2',
+            imgTitle: '【言叶之庭】',
+            imgDesc: '每晚临睡前，每天睁开眼的瞬间，不知不觉，我都在期盼雨天，期盼雨天，期盼和那个人，再次相会。'
+          },
+          {
+            imgSrc: './img/3.jpg',
+            imgAlt: 'image-3',
+            imgTitle: '【你的名字】',
+            imgDesc: '黄昏，不是白昼亦不是夜晚，是我努力却看不清你的脸。'
+          },
+          {
+            imgSrc: './img/4.jpg',
+            imgAlt: 'image-4',
+            imgTitle: '【天气之子】',
+            imgDesc: '天气真的是很不可思议，光只是天空的模样都让人感动不已。'
+          },
+          {
+            imgSrc: './img/5.jpg',
+            imgAlt: 'image-5',
+            imgTitle: '【K-ON！】',
+            imgDesc: '重要的，珍惜的，一直在身边，一旦成为理所当然，就难以发现。'
+          },
+          {
+            imgSrc: './img/6.jpg',
+            imgAlt: 'image-6',
+            imgTitle: '【CLANNAD】',
+            imgDesc: '我也很没用，但是两个人一起的话，就会变得很坚强。'
+          }
+        ]
+      }
+    }
+  })
+</script>
+</body>
+</html>

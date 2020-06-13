@@ -394,7 +394,7 @@
   /**
    * 219.存在重复元素||
    *
-   *收获：pop删除数组末尾的元素，unshift从数组前端插入元素，splice返回删除的数组元素，并替换
+   *收获：
    * */
 
   function containsNearbyDuplicate(nums, k) {
@@ -431,6 +431,45 @@
       }
     }
     return false;
+  }
+
+  /**
+   * 268.缺失数字
+   *
+   *收获：sort函数，返回值是一个正数，则两数交换位置，负数则不交换位置,
+   * */
+  // 1.
+  function missingNumber(nums) {
+    // 先排序
+    nums.sort((a, b) => a - b);
+    // 该题的意思是找出0---nums.length范围内没出现的数字，且只会有一个，
+    // 由此可知，按顺序循环一个长度，只要在循环中出现不等于i的数，就是我们要找的数
+    for (let i = 0; i <= nums.length; i++) {
+      if (nums[i] !== i) {
+        return i
+      }
+    }
+  }
+
+  // 2.数学公式，我们已知求一个顺序数列之和公式为(n/2)*(n+1),用理论之和减去实际之和即可知缺失的数字
+  function missingNumber2(nums) {
+    let theorySum = (nums.length / 2) * (nums.length + 1);
+    let realitySum = nums.reduce((prev, cur) => prev + cur);
+    return theorySum - realitySum;
+  }
+
+  /**
+   * 283. 移动零
+   *
+   *收获：
+   * */
+  function moveZeroes (nums) {
+    for(let i = nums.length-1;i >= 0;i--) {
+      if(nums[i]===0) {
+        nums.splice(i,1);
+        nums.push(0)
+      }
+    }
   }
 
 </script>
