@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>2020/06/07 算法学习随手记</title>
 </head>
+
 <body>
 
 <script type="text/javascript">
@@ -126,53 +128,41 @@
   }
 
   // 2.原地排序，空间复杂度O(1)，难理解(还未掌握)
-  // function quickSort1(arr) {
-  //   if (arr.length < 2) {
-  //     return arr
-  //   }
-  //   let pivot = arr[0];
-  //   let left = 0;
-  //   let right = arr.length - 1;
-  //   let flag = 0;
-  //   while (left < right) {
-  //     if (arr[right] < arr[flag]) {
-  //       right--;
-  //       this.swap(arr, right, flag);
-  //       flag = right;
-  //     } else if (arr[left] > arr[flag]) {
-  //       left++;
-  //       this.swap(arr, left, flag);
-  //       flag = left;
-  //     }
-  //   }
-  //
-  // }
-  //
-  // function partition(arr, left, right) {
-  //   let key = arr[right];
-  //   while (left < right) {
-  //     while (left < right && arr[left] <= key) {
-  //       ++left;
-  //     }
-  //     while (left < right && arr[right] >= key) {
-  //       --right;
-  //     }
-  //     swap(arr, left, right);
-  //   }
-  //   swap(arr, left, arr.length - 1);
-  //   console.log(arr)
-  // }
-  //
-  // partition([4, 1, 7, 6, 9, 2, 8, 0, 3, 5], 0, 9);
-
-  function swap(arr, i, j) {
-    let temp = i;
-    arr[i] = arr[j];
-    arr[j] = temp;
+  function quickSort3(arr, left, right) {
+    // 递归的结束条件
+    if (left > right) {
+      return;
+    }
+    let base = arr[left]; // base中存的就是基准数
+    let i = left;       // 设置两个哨兵
+    let j = right;
+    while (i < j) {
+      // 顺序很重要，要先从右边开始找
+      while (arr[j] >= base && i < j) {
+        j--;
+      }
+      // 再找右边的
+      while (arr[i] <= base && i < j) {
+        i++;
+      }
+      // 交换两个数在数组中的位置
+      if (i < j) {
+        let t = arr[i];
+        arr[i] = arr[j];
+        arr[j] = t;
+      }
+    }
+    // 最终将基准数归位
+    arr[left] = arr[i];
+    arr[i] = base;
+    quickSort3(arr, left, i - 1);// 继续处理左边的，这里是一个递归的过程
+    quickSort3(arr, i + 1, right);// 继续处理右边的 ，这里是一个递归的过程
   }
 
-  console.log(crSort([2,0,2,1,1,0]))
+  quickSort3(testArr, 0, testArr.length - 1);
+  console.log(testArr)
 
 </script>
 </body>
+
 </html>
