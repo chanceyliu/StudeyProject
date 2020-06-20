@@ -162,6 +162,39 @@
   quickSort3(testArr, 0, testArr.length - 1);
   console.log(testArr)
 
+  // 计数排序
+  function countSort(arr) {
+    if (arr.length < 2) {
+      return arr
+    }
+    // 找出数组的范围，使用Math.max求数组最大值需要使用...结构数组，因为Math.max的参数是一组数，而不是一个数组
+    let max = Math.max(...arr);
+    // 设立一个计数数组，下标为0-max，存储值等于下标的元素的个数
+    let countArr = [];
+    for (let i = 0; i < max + 1; i++) {
+      countArr[i] = 0;
+    }
+    // 统计元素出现的次数
+    for (let j = 0; j < arr.length; j++) {
+      countArr[arr[j]]++
+    }
+    // 接下来要将计数数组的值转换为小于等于该下标元素出现的次数，就是累加
+    for (let k = 1; k < countArr.length; k++) {
+      countArr[k] = countArr[k - 1] + countArr[k]
+    }
+    // 接下来是最重要也是较难理解的一步，将计数数组的数依次处理到新的数组中
+    let result = [];
+    // 对原数组从后往前查找，计数数组中的下标对应原数组的值，且计数数组的值为<=该元素的个数总和，所以就应该排在数组的"值-1"位
+    for (let m = arr.length - 1; m >= 0; m--) {
+      let index = countArr[arr[m]] - 1;
+      result[index] = arr[m];
+      countArr[arr[m]]--;
+    }
+    console.log(result);
+    return result;
+  }
+  countSort([0,1,5,7,4,1,8])
+
 </script>
 </body>
 

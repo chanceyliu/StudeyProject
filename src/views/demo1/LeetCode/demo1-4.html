@@ -371,6 +371,76 @@
         curr++
       }
     }
+    console.log(nums)
+  }
+
+  /**
+   * 179. 最大数
+   *
+   *收获：
+   * */
+  // 1.第一直觉是用基数排序，因为不管几位数，我们只要保证高位大的在前面即可。
+  function largestNumber0(nums) {
+    if (nums.length < 2) {
+      return ''+nums[0]
+    }
+    if (nums.every(item => item === 0)) {
+      return '0'
+    }
+    // 有点基数排序的意思，是去比较每个元素的每个位
+    nums.sort((a, b) => {
+      let aS = a + '' + a;
+      let bS = b + '' + a;
+      let aLen = 0;
+      let bLen = 0;
+      while (aLen < aS.length || bLen < bS.length) {
+        let temp_a = aLen < aS.length ? aLen : 0;
+        let temp_b = bLen < bS.length ? bLen : 0;
+        if (aS[temp_a] > bS[temp_b]) {
+          return -1
+        } else if (aS[temp_a] < bS[temp_b]) {
+          return 1
+        }
+        aLen++;
+        bLen++;
+      }
+      return 0
+    });
+    return nums.join('')
+  }
+  // 2.想要最大的，元素间必然有这样的关系 ab>ba
+  function largestNumber(nums) {
+    if (nums.length < 2) {
+      return ''+nums[0]
+    }
+    if (nums.every(item => item === 0)) {
+      return '0'
+    }
+    // 这里还是使用到了内置的排序方法，所以不是最好的答案
+    nums.sort((a,b) => {
+      let oneNum = `${a}${b}`;
+      let twoNum = `${b}${a}`;
+      console.log(oneNum,twoNum)
+      return twoNum - oneNum
+    });
+    return nums.join('')
+  }
+
+  /**
+   * 274. H 指数
+   *
+   *收获：
+   * */
+  // 1.先将数组排序，所有值大于下标的元素中，值最小的那个元素的下标+1就代表引用次数大于当前元素的文献有几本（有点绕）
+  function hIndex(citations) {
+    citations.sort((a,b) => {
+      return b - a
+    });
+    let i = 0;
+    while (i < citations.length && citations[i] > i) {
+      i++
+    }
+    return i
   }
 
 </script>

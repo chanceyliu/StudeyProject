@@ -463,14 +463,40 @@
    *
    *收获：
    * */
-  function moveZeroes (nums) {
-    for(let i = nums.length-1;i >= 0;i--) {
-      if(nums[i]===0) {
-        nums.splice(i,1);
+  function moveZeroes(nums) {
+    for (let i = nums.length - 1; i >= 0; i--) {
+      if (nums[i] === 0) {
+        nums.splice(i, 1);
         nums.push(0)
       }
     }
   }
+
+  /**
+   * 242. 有效的字母异位词
+   *
+   *收获：
+   * */
+  function isAnagram(s, t) {
+    let hashMap = {};
+    for (let i = 0; i < s.length; i++) {
+      if (hashMap[s[i]] !== undefined) {
+        hashMap[s[i]] += 1
+      } else {
+        hashMap[s[i]] = 1
+      }
+    }
+    for (let j = 0; j < t.length; j++) {
+      if (hashMap[t[j]] !== 0 && hashMap[t[j]] !== undefined) {
+        hashMap[t[j]]--
+      } else {
+        return false
+      }
+    }
+    return true
+  }
+
+  console.log(isAnagram("anagram", "nagaram"))
 
 </script>
 </body>
