@@ -16,7 +16,7 @@
       // 得到鼠标点击相对于这个按钮容器的坐标
       let x = e.clientX - e.target.offsetLeft;
       let y = e.clientY - e.target.offsetTop;
-
+      // 创建span元素
       let ripple = document.createElement("span");
       ripple.style.left = `${x}px`;
       ripple.style.top = `${y}px`;
