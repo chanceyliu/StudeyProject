@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bd9680b-f566-4715-a62e-677af087635a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/views/demo2/testProject3/css/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/demo2/testProject3/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/demo1/LeetCode/demo1-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/demo1/LeetCode/demo1-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/demo1/LeetCode/demo1-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/demo1/LeetCode/demo1-4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/demo1/NoteTaKing/demo1-11.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/demo1/NoteTaKing/demo1-11.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/demo2/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/demo2/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,43 +18,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/demo2/testProject3/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="121">
+              <caret line="12" column="49" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/views/demo1/LeetCode/demo1-4.html">
+        <entry file="file://$PROJECT_DIR$/src/views/demo2/testProject3/css/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="433" column="63" lean-forward="true" selection-start-line="433" selection-start-column="2" selection-end-line="433" selection-end-column="63" />
-              <folding>
-                <element signature="e#946#2066#0" />
-                <element signature="e#2210#2871#0" />
-                <element signature="e#2954#3772#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/demo1/LeetCode/demo1-3.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/demo1/LeetCode/demo1-2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="474" selection-start-line="474" selection-end-line="478" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/demo1/NoteTaKing/demo1-11.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3290">
-              <caret line="194" column="3" lean-forward="true" selection-start-line="194" selection-start-column="3" selection-end-line="194" selection-end-column="3" />
+            <state relative-caret-position="176">
+              <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -85,12 +62,14 @@
       <list>
         <option value="$PROJECT_DIR$/src/views/demo1/NoteTaKing/demo1-10.html" />
         <option value="$PROJECT_DIR$/src/views/demo1/LeetCode/demo1-3.html" />
-        <option value="$PROJECT_DIR$/src/views/demo2/README.md" />
         <option value="$PROJECT_DIR$/src/views/demo2/testProject2/index.html" />
         <option value="$PROJECT_DIR$/src/views/demo2/testProject2/css/index.css" />
         <option value="$PROJECT_DIR$/src/views/demo1/NoteTaKing/demo1-11.html" />
         <option value="$PROJECT_DIR$/src/views/demo1/LeetCode/demo1-2.html" />
         <option value="$PROJECT_DIR$/src/views/demo1/LeetCode/demo1-4.html" />
+        <option value="$PROJECT_DIR$/src/views/demo2/README.md" />
+        <option value="$PROJECT_DIR$/src/views/demo2/testProject3/index.html" />
+        <option value="$PROJECT_DIR$/src/views/demo2/testProject3/css/index.css" />
       </list>
     </option>
   </component>
@@ -105,6 +84,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -128,29 +108,29 @@
               <item name="StudeyProject" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="demo1" type="462c0819:PsiDirectoryNode" />
+              <item name="demo2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="StudeyProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="StudeyProject" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="demo1" type="462c0819:PsiDirectoryNode" />
-              <item name="LeetCode" type="462c0819:PsiDirectoryNode" />
+              <item name="demo2" type="462c0819:PsiDirectoryNode" />
+              <item name="testProject3" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="StudeyProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="StudeyProject" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="demo1" type="462c0819:PsiDirectoryNode" />
-              <item name="NoteTaKing" type="462c0819:PsiDirectoryNode" />
+              <item name="demo2" type="462c0819:PsiDirectoryNode" />
+              <item name="testProject3" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -218,7 +198,10 @@
       <workItem from="1592319119791" duration="718000" />
       <workItem from="1592485383718" duration="598000" />
       <workItem from="1592570688926" duration="4295000" />
-      <workItem from="1592614242852" duration="8153000" />
+      <workItem from="1592614242852" duration="8302000" />
+      <workItem from="1592721797311" duration="31000" />
+      <workItem from="1592732926944" duration="27000" />
+      <workItem from="1592835312352" duration="2722000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 2020/05/18 31.下一个序列">
       <created>1589808764947</created>
@@ -269,11 +252,18 @@
       <option name="project" value="LOCAL" />
       <updated>1592319917370</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat: 2020/06/16 快排+荷兰三色旗">
+      <created>1592661088161</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1592661088161</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77625000" />
+    <option name="totallyTimeSpent" value="80554000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -392,16 +382,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/demo2/testProject2/Js/china.js" />
-    <entry file="file://$PROJECT_DIR$/src/views/demo2/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="44">
-            <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/demo2/testProject1/Js/car_js.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -441,36 +421,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/demo1/NoteTaKing/demo1-11.html">
+    <entry file="file://$PROJECT_DIR$/src/views/demo1/LeetCode/demo1-4.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3290">
-          <caret line="194" column="3" lean-forward="true" selection-start-line="194" selection-start-column="3" selection-end-line="194" selection-end-column="3" />
+        <state relative-caret-position="231">
+          <caret line="435" column="29" selection-start-line="435" selection-start-column="29" selection-end-line="435" selection-end-column="29" />
+          <folding>
+            <element signature="e#946#2066#0" />
+            <element signature="e#2210#2871#0" />
+            <element signature="e#2954#3772#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/demo1/LeetCode/demo1-3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
+        <state relative-caret-position="88">
           <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/demo1/LeetCode/demo1-2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
+        <state relative-caret-position="10428">
           <caret line="474" selection-start-line="474" selection-end-line="478" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/demo1/LeetCode/demo1-4.html">
+    <entry file="file://$PROJECT_DIR$/src/views/demo1/NoteTaKing/demo1-11.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="433" column="63" lean-forward="true" selection-start-line="433" selection-start-column="2" selection-end-line="433" selection-end-column="63" />
-          <folding>
-            <element signature="e#946#2066#0" />
-            <element signature="e#2210#2871#0" />
-            <element signature="e#2954#3772#0" />
-          </folding>
+        <state relative-caret-position="4268">
+          <caret line="194" column="3" selection-start-line="194" selection-start-column="3" selection-end-line="194" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/demo2/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="66">
+            <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/demo2/testProject3/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="12" column="49" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/demo2/testProject3/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
         </state>
       </provider>
     </entry>

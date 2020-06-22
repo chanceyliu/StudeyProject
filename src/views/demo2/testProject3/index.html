@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>点击涟漪</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+<a href="#">Button</a>
+<a href="#">Button</a>
+<script type="text/javascript">
+  // 获取所有的按钮元素
+  const buttons = document.querySelectorAll("a");
+  buttons.forEach(item => {
+    item.addEventListener("click", function (e) {
+      // 得到鼠标点击相对于这个按钮容器的坐标
+      let x = e.clientX - e.target.offsetLeft;
+      let y = e.clientY - e.target.offsetTop;
+
+      let ripple = document.createElement("span");
+      ripple.style.left = `${x}px`;
+      ripple.style.top = `${y}px`;
+      // 在当前点击元素下新增该span元素
+      this.appendChild(ripple);
+      setTimeout(() => {
+        ripple.remove()
+      },1000)
+    })
+  })
+</script>
+</body>
+</html>
