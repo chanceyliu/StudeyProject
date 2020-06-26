@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>2020/06/26 复习之闭包</title>
+  <style>
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 12px;
+    }
+
+    h1 {
+      font-size: 1.5em;
+    }
+
+    h2 {
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>我是h1</h1>
+<h2>我是h2</h2>
+
+<a href="#" id="size-12">12px</a>
+<a href="#" id="size-16">16px</a>
+<a href="#" id="size-20">20px</a>
+
+
+<p id="help">Helpful notes will</p>
+<p>E-mail:<input type="text" id="email" name="email"></p>
+<p>Name:<input type="text" id="name" name="name"></p>
+<p>Age:<input type="text" id="age" name="age"></p>
+
+<script type="text/javascript">
+
+  function showHelp(help) {
+    document.getElementById('help').innerHTML = help;
+  }
+
+  function setupHelp() {
+    let helpText = [
+      {'id': 'email', 'help': 'Your e-mail address'},
+      {'id': 'name', 'help': 'Your full name'},
+      {'id': 'age', 'help': 'Your age'}
+    ];
+
+    for (let i = 0; i < helpText.length; i++) {
+      let item = helpText[i];
+      document.getElementById(item.id).onfocus = function () {
+        showHelp(item.help)
+      }
+    }
+  }
+
+  setupHelp();
+
+
+  function makeSize(size) {
+    return function () {
+      document.body.style.fontSize = `${size}px`
+    }
+  }
+
+  let size12 = makeSize(12);
+  let size16 = makeSize(16);
+  let size20 = makeSize(20);
+
+
+  document.getElementById("size-12").onclick = size12;
+  document.getElementById("size-16").onclick = size16;
+  document.getElementById("size-20").onclick = size20;
+
+  function myInit() {
+    let name = 'MMMM';
+
+    function displayName() {
+      console.log(name);
+    }
+
+    return displayName;
+  }
+
+  let myFunc = myInit();
+  myFunc();
+
+  function makeAdder(x) {
+    return function (y) {
+      return x + y
+    }
+  }
+
+  let add5 = makeAdder(5);
+  let add10 = makeAdder(10);
+
+
+  // 创建了一个匿名函数，立即执行了它
+  let Counter = (function () {
+    let privateCounter = 0;
+
+    function changeCount(val) {
+      privateCounter += val;
+    }
+
+    return {
+      addCount: function () {
+        changeCount(1)
+      },
+      reduceCount: function () {
+        changeCount(-1)
+      },
+      value: function () {
+        return privateCounter
+      }
+    }
+  })();
+
+  // 将计数器的函数体赋值给一个变量，借助这个变量我们可以创建多个相互不受影响的计时器
+  let makeCounter = function () {
+    let privateCounter = 0;
+
+    function changeCount(val) {
+      privateCounter += val;
+    }
+
+    return {
+      addCount: function () {
+        changeCount(1)
+      },
+      reduceCount: function () {
+        changeCount(-1)
+      },
+      value: function () {
+        return privateCounter
+      }
+    }
+  };
+
+  let cout1 = makeCounter();
+  let cout2 = makeCounter();
+
+  cout1.addCount();
+  cout1.addCount();
+  cout2.addCount();
+  console.log(cout1.value());
+  console.log(cout2.value());
+
+
+  function MyObject(name, message) {
+    console.log(name)
+    this.name = name.toString();
+    this.message = message.toString();
+  }
+
+  MyObject.prototype.getName = function () {
+    return this.name
+  };
+  let obj1 = new MyObject('lxy', 'xxxooo')
+  console.log(obj1)
+
+  var scope = 'window scope';
+
+  function checkScope() {
+    var scope = 'local scope';
+
+    function f() {
+      return scope;
+    }
+
+    return f;
+  }
+
+  var foo = checkScope();
+
+  var data = [];
+
+  for (var i = 0; i < 3; i++) {
+    data[i] = function () {
+      console.log(i);
+    };
+  }
+
+  data[0]();
+  data[1]();
+  data[2]();
+
+
+</script>
+</body>
+
+</html>

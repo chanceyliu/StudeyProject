@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>2020/06/26 复习之执行顺序</title>
+  <style>
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 20px;
+    }
+
+    h1 {
+      font-size: 1.5em;
+    }
+
+    h2 {
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>我是h1</h1>
+<h2>我是h2</h2>
+
+
+<script type="text/javascript">
+  // console.log('script start');
+  //
+  // // 微任务
+  // Promise.reject().then(() => {
+  //   console.log('p 1');
+  // }).catch(() => {
+  //   console.log('p 3')
+  // });
+  //
+  // // 宏任务
+  // setTimeout(() => {
+  //   console.log('setTimeout');
+  // }, 0);
+  //
+  // var s = new Date();
+  // while(new Date() - s < 50); // 阻塞50ms
+  //
+  // // 微任务
+  // Promise.resolve().then(() => {
+  //   console.log('p 2');
+  // });
+  //
+  console.log('script ent');
+
+
+  // (function () {
+  //   const s = new Date().getSeconds();
+  //
+  //   setTimeout(function () {
+  //     // 输出 "2"，表示回调函数并没有在 500 毫秒之后立即执行
+  //     console.log("Ran after " + (new Date().getSeconds() - s) + " seconds");
+  //   }, 500);
+  //
+  //   // 阻塞2秒
+  //   while (true) {
+  //     if (new Date().getSeconds() - s >= 2) {
+  //       console.log("Good, looped for 2 seconds");
+  //       break;
+  //     }
+  //   }
+  // })()
+
+
+  (function () {
+
+    console.log('这是开始');
+
+    setTimeout(function cb() {
+      console.log('这是来自第一个回调的消息');
+    });
+
+    console.log('这是一条消息');
+
+    setTimeout(function cb1() {
+      console.log('这是来自第二个回调的消息');
+    }, 0);
+
+    console.log('这是结束');
+
+  })();
+
+
+</script>
+</body>
+
+</html>

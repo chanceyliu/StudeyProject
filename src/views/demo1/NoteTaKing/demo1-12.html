@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>2020/06/25 线状树状结构互转</title>
+</head>
+
+<body>
+
+<script type="text/javascript">
+
+  let list = [
+    {
+      id: '0',
+      parentId: '999',
+      value: '重庆'
+    },
+    {
+      id: '1',
+      parentId: '999',
+      value: '浙江'
+    },
+    {
+      id: '2',
+      parentId: '999',
+      value: '广东'
+    },
+    {
+      id: '3',
+      parentId: '0',
+      value: '沙坪坝'
+    },
+    {
+      id: '4',
+      parentId: '3',
+      value: '微电园'
+    },
+    {
+      id: '5',
+      parentId: '0',
+      value: '潼南'
+    },
+    {
+      id: '6',
+      parentId: '1',
+      value: '深圳'
+    },
+    {
+      id: '7',
+      parentId: '6',
+      value: '宝安区'
+    },
+    {
+      id: '8',
+      parentId: '7',
+      value: '官渡村'
+    },
+    {
+      id: '9',
+      parentId: '2',
+      value: '杭州'
+    },
+    {
+      id: '10',
+      parentId: '2',
+      value: '温州'
+    },
+    {
+      id: '11',
+      parentId: '2',
+      value: '苏州'
+    },
+    {
+      id: '12',
+      parentId: '0',
+      value: '永川'
+    },
+    {
+      id: '13',
+      parentId: '1',
+      value: '佛山'
+    },
+    {
+      id: '14',
+      parentId: '0',
+      value: '万州'
+    },
+  ];
+  let tree = [];
+
+  function listToTree(arr) {
+    let map = {};
+    arr.forEach(item => {
+      if (!map[item.id]) {
+        map[item.id] = item
+      }
+    });
+    arr.forEach(item => {
+      if (item.parentId !== '999') {
+        !map[item.parentId].children ? map[item.parentId].children = [item] : map[item.parentId].children.push(item)
+      }
+    });
+    return arr.filter(item => {
+      return item.parentId === '999'
+    });
+  }
+
+  tree = listToTree(list);
+
+  var a = [];
+
+  function treeToList(arr) {
+    for (let i of arr) {
+      if (i.children) {
+        treeToList(i.children)
+      } else {
+        a.push(i)
+      }
+    }
+  }
+  treeToList(tree)
+</script>
+</body>
+
+</html>

@@ -17,7 +17,7 @@
   function miseXhr(url, method, data, async, timeout) {
     let xhr = new XMLHttpRequest();//创建xhr对象
     return new Promise(function (resolve, reject) {//创建promise对象
-      xhr.open(method,url,async)//发送请求
+      xhr.open(method, url, async)//发送请求
       xhr.timeout = option.timeout;
       xhr.onloadend = function () {
         if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) {
@@ -60,19 +60,46 @@
    * Promise 是用来管理异步编程的，它本身不是异步的
    * */
 
-  let p1 = new Promise((resolve,reject)=>{
+  let p1 = new Promise((resolve, reject) => {
     console.log(1);
     reject('浪里行舟')
     console.log(2)
   });
   // then:设置成功或者失败后处理的方法
-  p1.then(result=>{
+  p1.then(result => {
     //p1延迟绑定回调函数
-    console.log('成功 '+result)
-  },reason=>{
-    console.log('失败 '+reason)
+    console.log('成功 ' + result)
+  }, reason => {
+    console.log('失败 ' + reason)
   });
   console.log(3)
+
+  function sleep() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        console.log('finish')
+        resolve("sleep");
+      }, 2000);
+    });
+  }
+
+  async function test() {
+    let value = await sleep();
+    console.log(value);
+    console.log("object");
+  }
+
+  async function test2() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        console.log('finish222');
+        resolve('sleep2')
+      }, 3000);
+    });
+  }
+  test2().then((res) => {
+    test();
+  })
 
 </script>
 </body>
