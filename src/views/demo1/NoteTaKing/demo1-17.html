@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>2020/06/27 2020/06/27 复习之promise</title>
+</head>
+
+<body>
+
+<h1>2020/06/27 复习之promise</h1>
+
+
+<script type="text/javascript">
+  // (function () {
+  //   let promise = new Promise(function(resolve, reject) {
+  //     console.log('Promise');
+  //     resolve();
+  //   });
+  //
+  //   let a = new Promise(resolve => console.log('111'))
+  //   promise.then(function() {
+  //     console.log('resolved.');
+  //   });
+  //
+  //   console.log('Hi!');
+  //
+  // })()
+
+  // (function () {
+  //   let promise = new Promise((resolve,reject) => {
+  //     console.log('111');
+  //     resolve();
+  //   });
+  //
+  //   promise.finally(() => {
+  //     console.log('222')
+  //   })
+  // })()
+
+  // (function () {
+  //   function timeoutPromise(delay) {
+  //     return new Promise( function(resolve,reject){
+  //       setTimeout( function(){
+  //         reject( "Timeout!" );
+  //       }, delay );
+  //     } );
+  //   }
+  //   function foo() {
+  //     console.log('foo')
+  //   }
+  //
+  //   Promise.race( [
+  //     foo(),
+  //     timeoutPromise( 3000 )
+  //   ] )
+  //     .then(function(){}, function(err){});
+  // })()
+
+  (function () {
+    function pivotIndex(arr, left, right) {
+      if (left > right) {
+        return;
+      }
+      //设立指针和基准点（数组第一个）
+      let i = left;
+      let j = right;
+      let base = arr[left];
+      while (i < j) {
+        //我们从右往左找，找到比基准点小的元素
+        while (i < j && arr[j] >= base) {
+          j--
+        }
+        //再从左往右找，找到比基准点大的元素，然后交换他们的位置
+        while (i < j && arr[i] <= base) {
+          i++
+        }
+        if (i < j) {
+          let temp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = temp;
+        }
+      }
+      //大的丢右边小的丢左边，丢完之后，将基准点与i,j指针最后停留的元素交换位置
+      arr[left] = arr[i];
+      arr[i] = base;
+      //然后对快排后的左右两边做同样的操作
+      pivotIndex(arr, left, i - 1);
+      pivotIndex(arr, i + 1, right)
+    }
+
+    let testArr = [5, 3, 2, 7, 56, 4, 1];
+    pivotIndex(testArr, 0, testArr.length - 1);
+    console.log(testArr)
+  })()
+
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>2020/06/27 复习之ES6新特性</title>
+</head>
+
+<body>
+
+<h1>复习之ES6新特性</h1>
+
+
+<script type="text/javascript">
+
+  function test(text = 'default') {
+    console.log(text)
+  }
+
+  test('aaa')//aaa
+  test()//default
+
+  const student = {
+    name: 'lxy',
+    age: 20,
+    sex: '男'
+  };
+  for (let i in student) {
+    console.log(i)
+  }
+  let a = [1,2,3,4];
+  for (let i of a) {
+    console.log(i)
+  }
+
+
+
+  // 解构，{}中的参数名需要与结构的对象的属性名一致,
+  const {name, sex, age} = student;
+  console.log(name)
+  console.log(sex)
+  console.log(age)
+
+
+
+</script>
+</body>
+
+</html>
