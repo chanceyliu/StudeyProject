@@ -19,70 +19,192 @@
   }
 </style>
 <body>
-  <span>你好啊</span>
-  <a href="#" id="size-12">12</a>
-  <a href="#" id="size-14">14</a>
-  <a href="#" id="size-16">16</a>
+<span>你好啊</span>
+<a href="#" id="size-12">12</a>
+<a href="#" id="size-14">14</a>
+<a href="#" id="size-16">16</a>
 <script type="text/javascript">
-  function makeSizer(size) {
-    return function () {
-      document.body.style.fontSize = size + 'px';
-    };
-  }
+  // function makeSizer(size) {
+  //   return function () {
+  //     document.body.style.fontSize = size + 'px';
+  //   };
+  // }
+  //
+  // var size12 = makeSizer(12);
+  // var size14 = makeSizer(14);
+  // var size16 = makeSizer(16);
+  // document.getElementById('size-12').onclick = size12;
+  // document.getElementById('size-14').onclick = size14;
+  // document.getElementById('size-16').onclick = size16;
+  //
+  // function f1() {
+  //   let n = 999;
+  //   return function f2() {
+  //      alert(n)
+  //   }
+  // }
+  // // let result = f1();
+  // // result();
+  //
+  //
+  // var name = "this window"
+  // var object = {
+  //   name: "my window",
+  //   getNameFunc: function () {
+  //     return function () {
+  //       return this.name
+  //     }
+  //   }
+  // }
+  // // alert(object.getNameFunc()())
+  //
+  // function superType() {
+  //   this.prototype = true
+  // }
+  //
+  //
+  // superType.prototype.getSuperValue = function () {
+  //   return this.prototype
+  // };
+  //
+  //
+  // function subType() {
+  //   this.subproperty = false
+  // }
+  //
+  // subType.prototype = new superType();
+  //
+  // subType.prototype.getSubValue = function() {
+  //   return this.subproperty;
+  // }
+  //
+  // let instance = new subType();
+  //
+  // console.log(superType)
+  // console.log(subType.prototype)
+  // console.log(instance.getSuperValue())
 
-  var size12 = makeSizer(12);
-  var size14 = makeSizer(14);
-  var size16 = makeSizer(16);
-  document.getElementById('size-12').onclick = size12;
-  document.getElementById('size-14').onclick = size14;
-  document.getElementById('size-16').onclick = size16;
 
-  function f1() {
-    let n = 999;
-    return function f2() {
-       alert(n)
-    }
-  }
-  // let result = f1();
-  // result();
+  (function () {
+    let testArr = [8, 47, 36, 9, 2, 95, 23, 6, 478, 6, 21, 5, 322, 8, 36, 25, 451, 32, 96, 5, 1];
 
+    // function mpSort(arr) {
+    //   for (let i = 0; i < arr.length; i++) {
+    //     let flag = false;
+    //     for (let j = 0; j < arr.length - 1 - i; j++) {
+    //       if (arr[j] > arr[j + 1]) {
+    //         let temp = arr[j];
+    //         arr[j] = arr[j + 1];
+    //         arr[j + 1] = temp;
+    //         flag = true;
+    //       }
+    //     }
+    //     if (!flag) {
+    //       break
+    //     }
+    //   }
+    // }
 
-  var name = "this window"
-  var object = {
-    name: "my window",
-    getNameFunc: function () {
-      return function () {
-        return this.name
+    // function crSort(arr) {
+    //   for (let i = 1; i < arr.length; i++) {
+    //     let value = arr[i];
+    //     let j = i - 1;
+    //     for (; j >= 0; j--) {
+    //       if (arr[j] > value) {
+    //         arr[j + 1] = arr[j]
+    //       } else {
+    //         break
+    //       }
+    //     }
+    //     arr[j + 1] = value
+    //   }
+    // }
+
+    // function gbSort(arr) {
+    //   // console.log(Math)
+    //   if (arr.length < 2) {
+    //     return arr
+    //   }
+    //
+    //   let mid = Math.floor(arr.length / 2);
+    //   let leftArr = arr.slice(0, mid);
+    //   let rightArr = arr.slice(mid);
+    //   return marge_S(gbSort(leftArr), gbSort(rightArr))
+    // }
+    //
+    // function marge_S(leftArr, rightArr) {
+    //   let result = [];
+    //   while (leftArr.length && rightArr.length) {
+    //     if (leftArr[0] < rightArr[0]) {
+    //       result.push(leftArr.shift())
+    //     } else {
+    //       result.push(rightArr.shift())
+    //     }
+    //   }
+    //
+    //   while (leftArr.length) {
+    //     result.push(leftArr.shift());
+    //   }
+    //   while (rightArr.length) {
+    //     result.push(rightArr.shift());
+    //   }
+    //   return result;
+    // }
+
+    // function quickSort(arr) {
+    //   if (arr.length < 2) {
+    //     return arr
+    //   }
+    //
+    //   let mid = Math.floor(arr.length / 2);
+    //   let pivot = arr.splice(mid, 1)[0];
+    //   let leftArr = [];
+    //   let rightArr = [];
+    //   for (let i = 0; i < arr.length; i++) {
+    //     if (arr[i] > pivot) {
+    //       leftArr.push(arr[i])
+    //     } else {
+    //       rightArr.push(arr[i])
+    //     }
+    //   }
+    //
+    //   return quickSort(leftArr).concat(pivot, quickSort(rightArr))
+    // }
+
+    function quickSort(arr, left, right) {
+      if (left > right) {
+        return;
       }
+      let pivot = arr[left];
+      let i = left;
+      let j = right;
+      while (i < j) {
+        while (i < j && arr[j] >= pivot) {
+          j--;
+        }
+        while (i < j && arr[i] <= pivot) {
+          i++;
+        }
+        if (i < j) {
+          let temp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = temp;
+        }
+      }
+      arr[left] = arr[i];
+      arr[i] = pivot;
+
+      quickSort(arr, left, i - 1);
+      quickSort(arr, i + 1, right);
     }
-  }
-  // alert(object.getNameFunc()())
-
-  function superType() {
-    this.prototype = true
-  }
 
 
-  superType.prototype.getSuperValue = function () {
-    return this.prototype
-  };
-
-
-  function subType() {
-    this.subproperty = false
-  }
-
-  subType.prototype = new superType();
-
-  subType.prototype.getSubValue = function() {
-    return this.subproperty;
-  }
-
-  let instance = new subType();
-
-  console.log(superType)
-  console.log(subType.prototype)
-  console.log(instance.getSuperValue())
+    // mpSort(testArr)
+    // crSort(testArr)
+    // console.log(gbSort(testArr))
+    quickSort(testArr, 0, testArr.length - 1)
+    console.log(testArr)
+  })()
 
 
 </script>
