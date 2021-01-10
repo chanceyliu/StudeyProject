@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    测试：<input />
+    <button>测试</button>
+  </body>
+  <script>
+    var data = [
+      { name: "Samantha", age: 12 },
+      { name: "Alexis", age: 14 },
+    ];
+    var user = {
+      // 局部变量 data
+      data: [
+        { name: "T. Woods", age: 37 },
+        { name: "P. Mickelson", age: 43 },
+      ],
+      showData: function (event) {
+        var randomNum = ((Math.random() * 2) | 0) + 1 - 1; // random number between 0 and 1​
+        console.log(this.data[randomNum].name + " " + this.data[randomNum].age);
+      },
+    };
+    // 将 user 对象的 showData 方法赋值给一个变量
+    var showDataVar = user.showData;
+    showDataVar();
+
+    var MyModules = (function Manager() {
+      var modules = {};
+      function define(name, deps, impl) {
+        for (var i = 0; i < deps.length; i++) {
+          deps[i] = modules[deps[i]];
+        }
+        modules[name] = impl.apply(impl, deps);
+      }
+      function get(name) {
+        return modules[name];
+      }
+      return {
+        define: define,
+        get: get,
+      };
+    })();
+
+    MyModules.define("bar", [], function () {
+      function hello(who) {
+        return `let me ${who}`;
+      }
+      return {
+        hello: hello,
+      };
+    });
+  </script>
+</html>
