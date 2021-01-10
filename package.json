@@ -1,0 +1,19 @@
+{
+  "name": "studeyproject",
+  "version": "1.0.0",
+  "description": "- demo1用于算法练习，Js学习等 - demo2目前存放了大学实训的前端网页项目",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TiAmo126/StudeyProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TiAmo126/StudeyProject/issues"
+  },
+  "homepage": "https://github.com/TiAmo126/StudeyProject#readme"
+}
