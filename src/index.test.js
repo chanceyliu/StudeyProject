@@ -10,4 +10,6 @@ console.log("测试 release 更新版本");
 
 console.log("测试 release 更新版本 2");
 
-console.log("测试 hotfix 更新版本");
+console.log("测试 hotfix 热修复");
+
+console.log("测试 hotfix 热修复 2");
