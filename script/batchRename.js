@@ -1,6 +1,10 @@
 const fs = require("fs");
-let publicPath = `${__dirname}/src/views/demo1/JsProgramming`;
+const path = require("path");
+
+let publicPath = path.resolve(__dirname, "../src/views/demo1/CssStudy");
+
 let menu = fs.readdirSync(publicPath);
+
 menu.map((item) => {
   if (item.endsWith(".html")) {
     let test = item.split("-");
