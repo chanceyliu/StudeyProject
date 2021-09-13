@@ -11,7 +11,6 @@ fs.readdir(filePath, (err, data) => {
     const file = fs.statSync(path.resolve(filePath, item));
     if (file.isDirectory()) {
       const fileArr = item.split("-");
-      console.log(fileArr, "-");
       if (Number(fileArr[0]) > 0) {
         res.push(`${fileArr[0]}. ${fileArr[2]}`);
       }

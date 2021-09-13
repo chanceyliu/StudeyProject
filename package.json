@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "rename": "node script/batchRename.js"
+    "rename": "node script/batchRename.js",
+    "menu:demo4": "node script/demo4Menu.js"
   },
   "repository": {
     "type": "git",
