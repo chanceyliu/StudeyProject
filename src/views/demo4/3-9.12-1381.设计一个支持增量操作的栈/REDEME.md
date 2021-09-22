@@ -51,21 +51,43 @@ customStack.pop(); // 返回 -1 --> 栈为空，返回 -1
 ### 代码
 
 ```javascript
+/**
+ * @param {number} maxSize
+ */
 var CustomStack = function (maxSize) {
-  s = [];
-  t = 0;
-  n = maxSize;
+  this.stack = [];
+  this.max = maxSize;
 };
+
+/**
+ * @param {number} x
+ * @return {void}
+ */
 CustomStack.prototype.push = function (x) {
-  if (t < n) s[++t] = x;
-  return s;
+  if (this.stack.length < this.max) {
+    this.stack.push(x);
+  }
 };
+
+/**
+ * @return {number}
+ */
 CustomStack.prototype.pop = function () {
-  if (t) return s[t--];
-  return -1;
+  if (this.stack.length === 0) {
+    return -1;
+  }
+  return this.stack.pop();
 };
+
+/**
+ * @param {number} k
+ * @param {number} val
+ * @return {void}
+ */
 CustomStack.prototype.increment = function (k, val) {
-  while (k) s[k--] += val;
+  for (let i = 0; i < this.stack.length && i < k; i++) {
+    this.stack[i] = this.stack[i] + val;
+  }
 };
 ```
 
