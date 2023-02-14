@@ -1,83 +1,73 @@
-/**
- * 1.promise有三种状态："pending" | "fulfilled" | "rejected"
- * 2.只有pending状态可以扭转为其他状态
- * 3.默认一开始为pending，状态一旦确定不得更改
- */
-
 class MyPromise {
-
   constructor(executor) {
-    this.status = "pending";
-    this.result = undefined;
-    this.reason = undefined;
+    // Promise当前的状态
+    let status = 'pending'
+    // Promise的值
+    let data = undefined
+    // Promise resolve时的回调函数集
+    let onResolvedCallback = []
+    // Promise reject时的回调函数集
+    let onRejectedCallback = []
 
     let resolve = (value) => {
-      // 只有status为pending才能改变状态
-      if (this.status === "pending") {
-        this.status = "fulfilled";
-        this.result = value;
+      if (status === 'pending') {
+        status = 'resolved'
+        data = value
+        onResolvedCallback.forEach(func => {
+          func(value)
+        })
       }
-    };
+      console.log(value, '--success');
+    }
 
     let reject = (value) => {
-      // 只有status为pending才能改变状态
-      if (this.status === "pending") {
-        this.status = "rejected";
-        this.reason = value;
+      if (status === 'pending') {
+        status = 'rejected'
+        data = value
+        onRejectedCallback.forEach(func => {
+          func(value)
+        })
       }
-    };
+      console.log(value, '--error');
+    }
 
     try {
-      executor(resolve, reject);
+      executor(resolve, reject)
     } catch (error) {
-      reject(error);
+      this.reject(error)
     }
   }
 
-  then(onFulfilled, onRejected) {
-    if (this.status === "fulfilled") {
-      onFulfilled(this.result);
-    }
+  then() { }
 
-    if (this.status === 'rejected') {
-      onRejected(this.reason)
-    }
-  }
 
-  catch(onRejected) {
-    if (this.status === 'rejected') {
-      onRejected(this.reason)
-    }
-  }
+}
 
-  all() {
-    console.log("object");
+
+
+
+const debounce = (fn, time) => {
+  let current = null
+  return () => {
+    clearTimeout(current)
+    current = setTimeout(() => {
+      fn()
+    }, time)
   }
 }
 
-const b = new MyPromise((resolve, reject) => {
-  try {
+const throttle = (fn, time) => {
+  let timeOut = true
+  return () => {
+    if (!timeOut) {
+      return
+    }
+    timeOut = false
     setTimeout(() => {
-      resolve(3);
-    }, 1000)
-
-  } catch (error) {
-    reject(error);
+      fn()
+      timeOut = true
+    }, time)
   }
-}).then((res) => {
-  console.log(res, "my--");
-})
+}
 
-// const a = new Promise((resolve, reject) => {
-//   try {
-//     resolve(3);
-//   } catch (error) {
-//     reject("error: ");
-//   }
-// });
 
-// a.then((res) => {
-//   console.log(res, "--");
-// }).catch((error) => {
-//   console.log(error);
-// });

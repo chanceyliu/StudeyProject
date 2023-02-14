@@ -6,7 +6,15 @@ const arr = [
   { id: 5, name: "部门5", pid: 4 },
 ];
 
-const getChildren = (data, pid, res) => {
+/**
+ * 扁平结构转树状结构
+ * 递归很直观，容易理解，但是效率很低
+ * @param data
+ * @param pid 顶层父ID
+ * @returns
+ */
+
+const getChildren = (data: any, pid: string | number, res: any) => {
   for (const item of data) {
     if (item.pid === pid) {
       const newItem = { ...item, children: [] };
@@ -16,14 +24,6 @@ const getChildren = (data, pid, res) => {
   }
   return res;
 };
-
-/**
- * 扁平结构转树状结构
- * 递归很直观，容易理解，但是效率很低
- * @param data
- * @param pid 顶层父ID
- * @returns
- */
 
 export const dataToTree = (data: any[], pid: string | number) => {
   let res: any[] = [];

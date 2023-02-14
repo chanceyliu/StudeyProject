@@ -5,7 +5,9 @@
 export const debounce = (func: any, time: number) => {
   let timeOut: any;
   return () => {
-    clearTimeout(timeOut);
+    if (timeOut) {
+      clearTimeout(timeOut);
+    }
     timeOut = setTimeout(() => {
       func();
     }, time);
