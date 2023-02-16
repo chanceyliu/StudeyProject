@@ -1,4 +1,4 @@
-function shortestToChar(s: string, c: string): number[] {
+export function shortestToChar(s: string, c: string): number[] {
   const n = s.length;
   const res = new Array(n).fill(0);
 
