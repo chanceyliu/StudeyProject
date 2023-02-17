@@ -1,3 +1,5 @@
+const { default: axios } = require("axios")
+
 class MyPromise {
   constructor(executor) {
     // Promise当前的状态
@@ -45,29 +47,5 @@ class MyPromise {
 
 
 
-
-const debounce = (fn, time) => {
-  let current = null
-  return () => {
-    clearTimeout(current)
-    current = setTimeout(() => {
-      fn()
-    }, time)
-  }
-}
-
-const throttle = (fn, time) => {
-  let timeOut = true
-  return () => {
-    if (!timeOut) {
-      return
-    }
-    timeOut = false
-    setTimeout(() => {
-      fn()
-      timeOut = true
-    }, time)
-  }
-}
 
 

@@ -51,7 +51,35 @@ customStack.pop(); // 返回 -1 --> 栈为空，返回 -1
 ### 代码
 
 ```typescript
+export class CustomStack {
+  private data: any[];
+  private maxSize: number;
 
+  constructor(maxSize: number) {
+    this.data = [];
+    this.maxSize = maxSize;
+  }
+
+  push(x: number): void {
+    if (this.data.length < this.maxSize) {
+      this.data.push(x);
+    }
+  }
+
+  pop(): number {
+    console.log(this.data);
+    if (this.data.length === 0) {
+      return -1;
+    }
+    return this.data.pop();
+  }
+
+  increment(k: number, val: number): void {
+    for (let i = 0; i < Math.min(k, this.data.length); i++) {
+      this.data[i] += val;
+    }
+  }
+}
 ```
 
 **复杂度分析**
