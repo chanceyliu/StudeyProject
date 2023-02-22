@@ -1,5 +1,3 @@
-const { default: axios } = require("axios")
-
 class MyPromise {
   constructor(executor) {
     // Promise当前的状态

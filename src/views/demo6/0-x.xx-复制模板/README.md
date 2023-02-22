@@ -11,7 +11,7 @@
 
 ### 代码
 
-```javascript
+```typescript
 （代码）
 ```
 
