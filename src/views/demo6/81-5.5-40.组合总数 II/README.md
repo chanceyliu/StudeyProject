@@ -41,8 +41,11 @@ function combinationSum2(candidates: number[], target: number): number[][] {
   candidates.sort((a, b) => a - b);
   const resArr: number[][] = [];
   function backTracking(
-    candidates: number[], target: number,
-    curSum: number, startIndex: number, route: number[]
+    candidates: number[],
+    target: number,
+    curSum: number,
+    startIndex: number,
+    route: number[]
   ) {
     if (curSum > target) return;
     if (curSum === target) {
@@ -57,15 +60,14 @@ function combinationSum2(candidates: number[], target: number): number[][] {
       route.push(tempVal);
       backTracking(candidates, target, curSum + tempVal, i + 1, route);
       route.pop();
-
     }
   }
   backTracking(candidates, target, 0, 0, []);
   return resArr;
-};
+}
 ```
 
 **复杂度分析**
 
-- 时间复杂度：O() 
+- 时间复杂度：O()
 - 空间复杂度：O()
